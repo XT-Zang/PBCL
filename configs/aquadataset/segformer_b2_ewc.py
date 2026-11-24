@@ -1,0 +1,1 @@
+SEGFORMER_LOSS_COMPARISON = "aqua__ewc"

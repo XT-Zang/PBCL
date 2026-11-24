@@ -19,7 +19,7 @@ wandb/
 mlruns/
 outputs/
 output/
-results/
+data/
 eval_out/
 infer_out/
 checkpoints/
@@ -42,8 +42,9 @@ tb_logs/
 *.h5
 *.hdf5
 
-# Images and rasters
+# Images and rasters (keep README showcase assets)
 *.png
+!assets/*.png
 *.jpg
 *.jpeg
 *.bmp

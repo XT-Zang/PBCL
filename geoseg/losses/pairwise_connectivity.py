@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import hashlib
 from collections.abc import Sequence
 
 import torch
@@ -8,6 +9,57 @@ import torch.nn.functional as F
 
 PAIR_BUCKET_CODE = {"touching": 0, "1_2": 1, "3_5": 2}
 PAIR_BUCKET_NAME = {value: key for key, value in PAIR_BUCKET_CODE.items()}
+
+
+def _pair_digest(row: Sequence[int], *, salt: str, scope: str) -> bytes:
+    first, second, bucket = (int(value) for value in row)
+    payload = f"{salt}\0{scope}\0{first}\0{second}\0{bucket}".encode("utf-8")
+    return hashlib.sha256(payload).digest()
+
+
+def stratified_pair_sample(
+    pairs: torch.Tensor,
+    *,
+    max_pairs: int | None,
+    salt: str,
+) -> torch.Tensor:
+    """Deterministically cap PBCL pairs while retaining all three distance buckets."""
+
+    if max_pairs is None or int(pairs.shape[0]) <= int(max_pairs):
+        return pairs
+    limit = int(max_pairs)
+    if limit <= 0:
+        raise ValueError(f"max_pairs must be positive when provided, got {max_pairs}")
+
+    rows = [tuple(int(value) for value in row) for row in pairs.detach().cpu().tolist()]
+    indexed = list(enumerate(rows))
+    per_bucket: dict[int, list[tuple[int, tuple[int, int, int]]]] = {
+        code: [] for code in PAIR_BUCKET_NAME
+    }
+    for item in indexed:
+        code = int(item[1][2])
+        if code in per_bucket:
+            per_bucket[code].append(item)
+
+    base, remainder = divmod(limit, len(per_bucket))
+    selected: set[int] = set()
+    for position, code in enumerate(sorted(per_bucket)):
+        quota = base + (1 if position < remainder else 0)
+        ordered = sorted(
+            per_bucket[code],
+            key=lambda item: (_pair_digest(item[1], salt=salt, scope=f"bucket:{code}"), item[0]),
+        )
+        selected.update(index for index, _ in ordered[:quota])
+
+    if len(selected) < limit:
+        remaining = [item for item in indexed if item[0] not in selected]
+        remaining.sort(
+            key=lambda item: (_pair_digest(item[1], salt=salt, scope="fill"), item[0])
+        )
+        selected.update(index for index, _ in remaining[: limit - len(selected)])
+
+    indices = torch.as_tensor(sorted(selected), dtype=torch.long, device=pairs.device)
+    return pairs.index_select(0, indices)
 
 
 def _four_neighbor_max(values: torch.Tensor) -> torch.Tensor:
@@ -74,6 +126,9 @@ def pair_bottleneck_connectivity_loss(
     threshold: float = 0.5,
     margin: float = 0.1,
     neighbors: int = 4,
+    valid_masks: torch.Tensor | None = None,
+    max_pairs_per_tile: int | None = None,
+    pair_sampling_salt: str = "pbcl-pair-sampling-v1",
 ) -> tuple[torch.Tensor, torch.Tensor, int]:
     """Return pair-equal PBCL, detached mean bottleneck score, and pair count."""
     if logits.ndim != 4 or logits.shape[1] != 1:
@@ -88,6 +143,20 @@ def pair_bottleneck_connectivity_loss(
         raise ValueError(
             f"instance_pairs length {len(instance_pairs)} does not match batch size {logits.shape[0]}"
         )
+    if valid_masks is not None:
+        valid_masks = torch.as_tensor(valid_masks, device=logits.device)
+        if valid_masks.ndim == 3:
+            valid_masks = valid_masks.unsqueeze(1)
+        if valid_masks.shape[-2:] != logits.shape[-2:]:
+            valid_masks = F.interpolate(
+                valid_masks.float(), size=logits.shape[-2:], mode="nearest"
+            )
+        if valid_masks.shape[1] != 1 or valid_masks.shape[0] != logits.shape[0]:
+            raise ValueError(
+                "valid_masks must have shape (B,1,H,W) compatible with logits, got "
+                f"{tuple(valid_masks.shape)}"
+            )
+        valid_masks = valid_masks.to(dtype=torch.bool)
     if band_radius <= 0:
         raise ValueError(f"band_radius must be positive, got {band_radius}")
     if iterations <= 0:
@@ -108,17 +177,28 @@ def pair_bottleneck_connectivity_loss(
                 raise ValueError(f"each instance_pairs tensor must have shape (N,3), got {tuple(pairs.shape)}")
             if pairs.numel() == 0:
                 continue
+            pairs = stratified_pair_sample(
+                pairs,
+                max_pairs=max_pairs_per_tile,
+                salt=str(pair_sampling_salt),
+            )
+            sample_valid = (
+                valid_masks[batch_idx : batch_idx + 1]
+                if valid_masks is not None
+                else torch.ones_like(labels[batch_idx : batch_idx + 1], dtype=torch.bool)
+            )
             for first_id, second_id, bucket_code in pairs.tolist():
                 if int(bucket_code) not in PAIR_BUCKET_NAME:
                     continue
-                first = labels[batch_idx : batch_idx + 1] == int(first_id)
-                second = labels[batch_idx : batch_idx + 1] == int(second_id)
+                first = (labels[batch_idx : batch_idx + 1] == int(first_id)) & sample_valid
+                second = (labels[batch_idx : batch_idx + 1] == int(second_id)) & sample_valid
                 crop_slices = _pair_crop_slices(first, second, padding=band_radius)
                 if crop_slices is None:
                     continue
                 y_slice, x_slice = crop_slices
                 score = _pair_bottleneck_score(
-                    probabilities[batch_idx : batch_idx + 1, :, y_slice, x_slice],
+                    probabilities[batch_idx : batch_idx + 1, :, y_slice, x_slice]
+                    * sample_valid[:, :, y_slice, x_slice],
                     first[:, :, y_slice, x_slice],
                     second[:, :, y_slice, x_slice],
                     band_radius=band_radius,
@@ -133,3 +213,11 @@ def pair_bottleneck_connectivity_loss(
         score_tensor = torch.stack(scores)
         loss = torch.relu(score_tensor - cutoff).square().mean()
         return loss, score_tensor.mean().detach(), len(scores)
+
+
+__all__ = [
+    "PAIR_BUCKET_CODE",
+    "PAIR_BUCKET_NAME",
+    "pair_bottleneck_connectivity_loss",
+    "stratified_pair_sample",
+]

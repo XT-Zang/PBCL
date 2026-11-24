@@ -1,0 +1,45 @@
+{
+  "loss_and_gradient": "passed",
+  "paper_recipe_value_and_gradient": "passed",
+  "references": {
+    "boundary/seed42": {
+      "path": "<redacted>/boundary_seed42-best_overall.ckpt",
+      "sha256": "1da1cac84e3585839d78e4e50b70eb872cfa87c4d4914ea099b927bd90d36d57"
+    },
+    "full/seed42": {
+      "path": "<redacted>/full_seed42-best_overall.ckpt",
+      "sha256": "b75357bb309c32f592deed18625a29ba639851e9fbb52d6fdafd00c71a17fb43"
+    },
+    "boundary/seed43": {
+      "path": "<redacted>/boundary_seed43-best_overall.ckpt",
+      "sha256": "99fabb1f707f3f6c01b9f6b2063818c922da104059281f149b6bc9b05b2c33d1"
+    },
+    "full/seed43": {
+      "path": "<redacted>/full_seed43-best_overall.ckpt",
+      "sha256": "bddfdcb791e458d2c996ba7daba3d6f5b51504509fadfa7a27bc5be1e937fa2e"
+    },
+    "boundary/seed44": {
+      "path": "<redacted>/boundary_seed44-best_overall.ckpt",
+      "sha256": "a7cfb22d16c6c05f320ee8e164773e4eb9aa0af710fa0cb6cf370e96febfac16"
+    },
+    "full/seed44": {
+      "path": "<redacted>/full_seed44-best_overall.ckpt",
+      "sha256": "5afa35447c70c2b43cc9789f375e282da549524fe80fedd04772d3d9f6319347"
+    }
+  },
+  "script_sha256": "24649b08f94167cec9cb7219a3a6a1cefb64acee44abb8a8d86ded3e1b9ad954",
+  "splits": {
+    "train": 1768,
+    "val": 879,
+    "test": 563
+  },
+  "seeds": [
+    42,
+    43,
+    44
+  ],
+  "split_weight": 0.1,
+  "split_kernel": 3,
+  "wprf_head_value_and_gradient": "passed",
+  "wprf_source_commit": "418e362b440df08e72ae6da54abeec6559a8f442"
+}

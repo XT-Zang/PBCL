@@ -1,0 +1,32 @@
+{
+  "train": {
+    "tiles": 2513,
+    "positive": 2373,
+    "empty": 140,
+    "instances": 72622,
+    "touching_pairs": 173,
+    "gap_1_2_pairs": 1452,
+    "gap_3_5_pairs": 4586,
+    "gap_1_5_pairs": 6038
+  },
+  "val": {
+    "tiles": 621,
+    "positive": 575,
+    "empty": 46,
+    "instances": 14971,
+    "touching_pairs": 28,
+    "gap_1_2_pairs": 311,
+    "gap_3_5_pairs": 1056,
+    "gap_1_5_pairs": 1367
+  },
+  "test": {
+    "tiles": 568,
+    "positive": 529,
+    "empty": 39,
+    "instances": 16669,
+    "touching_pairs": 55,
+    "gap_1_2_pairs": 284,
+    "gap_3_5_pairs": 1029,
+    "gap_1_5_pairs": 1313
+  }
+}

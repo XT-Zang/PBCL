@@ -8,12 +8,12 @@ import torch
 def get_main_logits(outputs) -> torch.Tensor:
     if isinstance(outputs, Mapping):
         if "out" not in outputs:
-            raise KeyError("model output mapping does not contain 'out'")
+            raise KeyError("Model output dictionary must contain an 'out' tensor")
         return outputs["out"]
     if isinstance(outputs, (tuple, list)):
         if not outputs:
-            raise ValueError("model output sequence is empty")
+            raise ValueError("Model output sequence is empty")
         return outputs[0]
     if not isinstance(outputs, torch.Tensor):
-        raise TypeError(f"unsupported model output type: {type(outputs)!r}")
+        raise TypeError(f"Unsupported model output type: {type(outputs)!r}")
     return outputs

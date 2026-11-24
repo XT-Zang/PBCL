@@ -5,7 +5,7 @@ from .environment import (
     preflight_experiment,
     validate_dependency_versions,
 )
-from .specs import ExperimentSpec
+from .specs import ExperimentSpec, make_aquav3_spec
 
 
 def build_aquadataset_spec(*args, **kwargs):
@@ -19,6 +19,7 @@ __all__ = [
     "ExperimentSpec",
     "ResolvedExperiment",
     "load_experiment",
+    "make_aquav3_spec",
     "build_aquadataset_spec",
     "collect_environment_report",
     "apply_runtime_optimizations",

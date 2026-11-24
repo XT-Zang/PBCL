@@ -1,0 +1,110 @@
+{
+  "unetplusplus__base/seed42": {
+    "training_problem": null,
+    "test_problem": null,
+    "checkpoint": "<redacted>/unetplusplus_seed42-best_overall.ckpt",
+    "summary": "<redacted>/test_summary.json"
+  },
+  "deeplabv3plus__base/seed42": {
+    "training_problem": null,
+    "test_problem": null,
+    "checkpoint": "<redacted>/deeplabv3plus_seed42-best_overall.ckpt",
+    "summary": "<redacted>/test_summary.json"
+  },
+  "segformer_b2__base/seed42": {
+    "training_problem": null,
+    "test_problem": null,
+    "checkpoint": "<redacted>/segformer_b2_seed42-best_overall.ckpt",
+    "summary": "<redacted>/test_summary.json"
+  },
+  "unetformer__base/seed42": {
+    "training_problem": null,
+    "test_problem": null,
+    "checkpoint": "<redacted>/unetformer_seed42-best_overall.ckpt",
+    "summary": "<redacted>/test_summary.json"
+  },
+  "dcswin_base__base/seed42": {
+    "training_problem": "historical DCSwin uses a different attention implementation",
+    "test_problem": null,
+    "checkpoint": "<redacted>/dcswin_base_seed42-best_overall.ckpt",
+    "summary": "<redacted>/test_summary.json"
+  },
+  "mask2former_swin_t__base/seed42": {
+    "training_problem": null,
+    "test_problem": null,
+    "checkpoint": "<redacted>/mask2former_swin_t_seed42-best_overall.ckpt",
+    "summary": "<redacted>/test_summary.json"
+  },
+  "unetplusplus__base/seed43": {
+    "training_problem": null,
+    "test_problem": null,
+    "checkpoint": "<redacted>/unetplusplus_seed43-best_overall.ckpt",
+    "summary": "<redacted>/test_summary.json"
+  },
+  "deeplabv3plus__base/seed43": {
+    "training_problem": null,
+    "test_problem": null,
+    "checkpoint": "<redacted>/deeplabv3plus_seed43-best_overall.ckpt",
+    "summary": "<redacted>/test_summary.json"
+  },
+  "segformer_b2__base/seed43": {
+    "training_problem": null,
+    "test_problem": null,
+    "checkpoint": "<redacted>/segformer_b2_seed43-best_overall.ckpt",
+    "summary": "<redacted>/test_summary.json"
+  },
+  "unetformer__base/seed43": {
+    "training_problem": null,
+    "test_problem": null,
+    "checkpoint": "<redacted>/unetformer_seed43-best_overall.ckpt",
+    "summary": "<redacted>/test_summary.json"
+  },
+  "dcswin_base__base/seed43": {
+    "training_problem": "historical DCSwin uses a different attention implementation",
+    "test_problem": null,
+    "checkpoint": "<redacted>/dcswin_base_seed43-best_overall.ckpt",
+    "summary": "<redacted>/test_summary.json"
+  },
+  "mask2former_swin_t__base/seed43": {
+    "training_problem": null,
+    "test_problem": null,
+    "checkpoint": "<redacted>/mask2former_swin_t_seed43-best_overall.ckpt",
+    "summary": "<redacted>/test_summary.json"
+  },
+  "unetplusplus__base/seed44": {
+    "training_problem": null,
+    "test_problem": null,
+    "checkpoint": "<redacted>/unetplusplus_seed44-best_overall.ckpt",
+    "summary": "<redacted>/test_summary.json"
+  },
+  "deeplabv3plus__base/seed44": {
+    "training_problem": null,
+    "test_problem": null,
+    "checkpoint": "<redacted>/deeplabv3plus_seed44-best_overall.ckpt",
+    "summary": "<redacted>/test_summary.json"
+  },
+  "segformer_b2__base/seed44": {
+    "training_problem": null,
+    "test_problem": null,
+    "checkpoint": "<redacted>/segformer_b2_seed44-best_overall.ckpt",
+    "summary": "<redacted>/test_summary.json"
+  },
+  "unetformer__base/seed44": {
+    "training_problem": null,
+    "test_problem": null,
+    "checkpoint": "<redacted>/unetformer_seed44-best_overall.ckpt",
+    "summary": "<redacted>/test_summary.json"
+  },
+  "dcswin_base__base/seed44": {
+    "training_problem": "historical DCSwin uses a different attention implementation",
+    "test_problem": null,
+    "checkpoint": "<redacted>/dcswin_base_seed44-best_overall.ckpt",
+    "summary": "<redacted>/test_summary.json"
+  },
+  "mask2former_swin_t__base/seed44": {
+    "training_problem": null,
+    "test_problem": null,
+    "checkpoint": "<redacted>/mask2former_swin_t_seed44-best_overall.ckpt",
+    "summary": "<redacted>/test_summary.json"
+  }
+}

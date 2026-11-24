@@ -1,0 +1,221 @@
+{
+  "upstream_verified": true,
+  "upstream": {
+    "commit": "418e362b440df08e72ae6da54abeec6559a8f442",
+    "cases": [
+      {
+        "steps": 1,
+        "checkpoint": false,
+        "score_error": 0.0,
+        "gradient_error": 0.0,
+        "loss_error": 0.0
+      },
+      {
+        "steps": 1,
+        "checkpoint": true,
+        "score_error": 0.0,
+        "gradient_error": 0.0,
+        "loss_error": 0.0
+      },
+      {
+        "steps": 2,
+        "checkpoint": false,
+        "score_error": 0.0,
+        "gradient_error": 0.0,
+        "loss_error": 0.0
+      },
+      {
+        "steps": 2,
+        "checkpoint": true,
+        "score_error": 0.0,
+        "gradient_error": 0.0,
+        "loss_error": 0.0
+      },
+      {
+        "steps": 4,
+        "checkpoint": false,
+        "score_error": 0.0,
+        "gradient_error": 0.0,
+        "loss_error": 0.0
+      },
+      {
+        "steps": 4,
+        "checkpoint": true,
+        "score_error": 0.0,
+        "gradient_error": 0.0,
+        "loss_error": 0.0
+      }
+    ],
+    "edge_error": 2.9802322387695312e-08,
+    "source_files": {
+      "src/wprf/__init__.py": "77e51b72dee32b77cf9408e324f9a035f4ab8d4952ac5f834bf0b98bc56b3f85",
+      "src/wprf/config.py": "57b1f8924f56516ef2a469b6acce42d1d67f4b2c7a347935bba45b69361261cd",
+      "src/wprf/gt.py": "2c86b7838fe868ef7d94dcb8c38b6cf2cf3de8ba3d8c2142426e8728261c606b",
+      "src/wprf/infer.py": "76c4bf8d8b30d82498df65caa5ab6b9c4c355cbc2b8adb6085547c1de337e727",
+      "src/wprf/losses.py": "14e7f1b240bf41f07c615136d31933f331cd14cb6b5536e1ff4575ff3a2cace2",
+      "src/wprf/markov.py": "f5d1d2a2e8888ea86dd22da3bd96614495508ad3013d8812794b4a812730b0dc",
+      "src/wprf/omega.py": "9be5904dc4d7e6e446f8fb477f1b65cb873be33fd82d05d4b7845c6d9a0678f0",
+      "src/wprf/pairs.py": "141517d78a15b08d2eb2a8be91c374022373e71718caeeabea7eaa235623a3ee",
+      "src/wprf/phi.py": "422ef24cc10fd1f70c9fb567d34a5174eca52d1854e23f385d38cc0639f197d5",
+      "src/wprf/reachability.py": "9de7deca211c1e22ce740aecd191480f09e4bd95ba265722586e370f4469bb28",
+      "src/wprf/render.py": "8b5fd6f4077c5224183bc50c3bdf658c8e81e28ab02ebae8545dd75483e7cd02",
+      "src/wprf/smoke.py": "1d511eae11f047ecc4b4170a45fca4530e17cae30032de2b7b9ebfe574b25656",
+      "src/wprf/smoke_unet.py": "ea508141fd0cfb120396391746a19b6e6b7c897aac84ca7199601b2c97bb74c1",
+      "src/wprf/soft_cldice.py": "dd2e70071141026f0a71c51430a8299b396d055fe7db71d1752ece1266270147"
+    }
+  },
+  "train_negative_by_scale": {
+    "1": {
+      "negative_records": 55538,
+      "legal_gt": 0,
+      "legal_valid": 0,
+      "legal_gt_ratio": 0.0,
+      "legal_valid_ratio": 0.0
+    },
+    "2": {
+      "negative_records": 55320,
+      "legal_gt": 0,
+      "legal_valid": 19,
+      "legal_gt_ratio": 0.0,
+      "legal_valid_ratio": 0.00034345625451916124
+    },
+    "4": {
+      "negative_records": 54671,
+      "legal_gt": 0,
+      "legal_valid": 156,
+      "legal_gt_ratio": 0.0,
+      "legal_valid_ratio": 0.002853432349874705
+    },
+    "8": {
+      "negative_records": 52582,
+      "legal_gt": 0,
+      "legal_valid": 1127,
+      "legal_gt_ratio": 0.0,
+      "legal_valid_ratio": 0.02143319006504127
+    },
+    "16": {
+      "negative_records": 47602,
+      "legal_gt": 0,
+      "legal_valid": 11602,
+      "legal_gt_ratio": 0.0,
+      "legal_valid_ratio": 0.24372925507331625
+    }
+  },
+  "neutral_affinity_real_cache_probes": [
+    {
+      "tile_id": "GF1_PMS1_E121.0_N33.0_20260328_L1A14332093001_pansharpen__x015360_y013312",
+      "scale": 16,
+      "pair": [
+        [
+          106,
+          42,
+          122,
+          51
+        ]
+      ],
+      "score": 0.5,
+      "gradient_max": 0.041666582226753235
+    },
+    {
+      "tile_id": "GF1_PMS1_E121.0_N33.0_20260328_L1A14332093001_pansharpen__x015360_y013824",
+      "scale": 8,
+      "pair": [
+        [
+          11,
+          8,
+          19,
+          13
+        ]
+      ],
+      "score": 0.5,
+      "gradient_max": 0.041666582226753235
+    },
+    {
+      "tile_id": "GF1_PMS1_E121.0_N33.0_20260328_L1A14332093001_pansharpen__x016384_y015360",
+      "scale": 4,
+      "pair": [
+        [
+          3,
+          2,
+          0,
+          6
+        ]
+      ],
+      "score": 0.5,
+      "gradient_max": 0.06249987334012985
+    },
+    {
+      "tile_id": "GF6_PMS_E120.9_N32.8_20250209_L1A1420544205-MUX_fuse__x038400_y005120",
+      "scale": 2,
+      "pair": [
+        [
+          125,
+          86,
+          127,
+          88
+        ]
+      ],
+      "score": 0.5,
+      "gradient_max": 0.1249997466802597
+    }
+  ],
+  "real_batch_probe": {
+    "batch_index": 0,
+    "tile_ids": [
+      "GF1_PMS2_E121.4_N33.0_20260328_L1A14331986001_pansharpen__x004096_y014848",
+      "GF6_PMS_E121.4_N32.8_20240322_L1A1420429944-MUX_fuse__x053760_y032768",
+      "GF6_PMS_E121.4_N32.8_20240322_L1A1420429944-MUX_fuse__x040448_y016384",
+      "GF6_PMS_E121.6_N32.8_20250213_L1A1420545504-MUX_fuse__x009728_y014336",
+      "GF6_PMS_E121.6_N32.8_20250213_L1A1420545504-MUX_fuse__x017920_y024576",
+      "GF1_PMS1_E121.1_N33.3_20260328_L1A14332092001_pansharpen__x013824_y013312",
+      "GF6_PMS_E121.4_N32.8_20240322_L1A1420429944-MUX_fuse__x030720_y030720",
+      "GF6_PMS_E120.9_N32.8_20250209_L1A1420544205-MUX_fuse__x048128_y009216",
+      "GF1_PMS1_E121.1_N33.3_20260328_L1A14332092001_pansharpen__x008704_y002560",
+      "GF1_PMS2_E121.4_N33.0_20260328_L1A14331986001_pansharpen__x011264_y014336",
+      "GF6_PMS_E121.6_N32.8_20250213_L1A1420545504-MUX_fuse__x049664_y025088",
+      "GF1_PMS2_E121.4_N33.0_20260328_L1A14331986001_pansharpen__x015360_y012288"
+    ],
+    "affinity_state": "initial_pretrained_encoder_and_seed42_random_head",
+    "scales": {
+      "1": {
+        "negative_records": 224,
+        "positive_scores": 0,
+        "interior_scores": 0,
+        "gradient_max": 0.0
+      },
+      "2": {
+        "negative_records": 216,
+        "positive_scores": 0,
+        "interior_scores": 0,
+        "gradient_max": 0.0
+      },
+      "4": {
+        "negative_records": 192,
+        "positive_scores": 1,
+        "interior_scores": 1,
+        "gradient_max": 0.0012183625949546695
+      },
+      "8": {
+        "negative_records": 192,
+        "positive_scores": 2,
+        "interior_scores": 2,
+        "gradient_max": 0.0013498215703293681
+      },
+      "16": {
+        "negative_records": 188,
+        "positive_scores": 35,
+        "interior_scores": 35,
+        "gradient_max": 0.0030648543033748865
+      }
+    },
+    "gradient_max": 0.0030648543033748865
+  },
+  "valid_support_gate_passed": true,
+  "adaptation": "WPRF-valid changes only the negative-query support from GT skeleton to the valid grid",
+  "legacy_port_differences": [
+    "half-space/source-foreground local edge sampling",
+    "per-image edge normalization",
+    "additive epsilon in reachability BCE",
+    "exact-step propagation with accumulated maxima"
+  ]
+}

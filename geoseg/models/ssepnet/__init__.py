@@ -1,72 +1,151 @@
-from __future__ import annotations
-
+from .model import DINOv3OnlySSepNet, HRNetOnlySSepNet, SSepNet
+from .lora import (
+    DINOV3_ADAPTATION_MODES,
+    DinoV3AdaptationReport,
+    QVLoRAQKV,
+    configure_dinov3_adaptation,
+    merge_dinov3_qv_lora,
+)
+from .candidates import (
+    SSEPNET_CANDIDATES,
+    SSepNetCandidateSpec,
+    build_ssepnet_candidate,
+    build_ssepnet_candidate_loss,
+    get_ssepnet_candidate,
+    is_ssepnet_candidate,
+)
+from .ocr_optimization import (
+    SSEPNET_OCR_OPTIMIZATIONS,
+    DINOv3LayerAwareOCRSSepNet,
+    DINOv3UnifiedOCRSSepNet,
+    SSepNetOCROptimizationSpec,
+    build_ssepnet_ocr_optimization,
+    build_ssepnet_ocr_optimization_loss,
+    get_ssepnet_ocr_optimization,
+    is_ssepnet_ocr_optimization,
+)
+from .dual_fpn_ocr import (
+    SSEPNET_DUAL_FPN_OCR,
+    DINOv3DetailFPNOCR,
+    DualFPNOCRSpec,
+    build_ssepnet_dual_fpn_ocr,
+    build_ssepnet_dual_fpn_ocr_loss,
+    get_ssepnet_dual_fpn_ocr,
+    is_ssepnet_dual_fpn_ocr,
+)
+from .multiscale_dinov3 import (
+    SSEPNET_MULTISCALE_DINOV3,
+    BalancedSemanticFusion,
+    HierarchicalDINOv3Backbone,
+    MultiscaleDINOv3SSepNet,
+    MultiscaleDINOv3Spec,
+    PoolHierarchyDINOv3Backbone,
+    SemanticAnchorGatedPyramidOCRHead,
+    SemanticResidualGate,
+    StageAdapterDINOv3Backbone,
+    build_ssepnet_multiscale_dinov3,
+    build_ssepnet_multiscale_dinov3_loss,
+    get_ssepnet_multiscale_dinov3,
+    is_ssepnet_multiscale_dinov3,
+)
 from .stage_adapter_fpn_ocr import (
-    StageAdapterFPNOCRSpec,
+    SSEPNET_STAGE_ADAPTER_FPN_OCR,
+    FlatDINOv3PyramidBackbone,
     StageAdapterFPNSSepNet,
+    StageAdapterFPNOCRSpec,
     StageAdapterStandardFPNBinaryHead,
+    StageAdapterStandardFPNOCRHead,
     build_ssepnet_stage_adapter_fpn_ocr,
     build_ssepnet_stage_adapter_fpn_ocr_loss,
     get_ssepnet_stage_adapter_fpn_ocr,
+    is_ssepnet_stage_adapter_fpn_ocr,
+)
+from .multiscale_dinov3_v2 import (
+    SSEPNET_MULTISCALE_DINOV3_V2,
+    DistillableMultiscaleDINOv3V2,
+    MultiscaleDINOv3V2Spec,
+    P4AnchoredSemanticFusion,
+    build_ssepnet_multiscale_dinov3_v2,
+    build_ssepnet_multiscale_dinov3_v2_loss,
+    get_ssepnet_multiscale_dinov3_v2,
+    is_ssepnet_multiscale_dinov3_v2,
+)
+from .variants import (
+    SSEPNET_VARIANTS,
+    SSepNetVariantSpec,
+    build_ssepnet_loss,
+    build_ssepnet_variant,
+    get_ssepnet_variant,
 )
 
-TARGET_VARIANT = "ssepnet_ms_dinov3_stage_adapter_fpn_ocr_6_6_6_6_binary_head"
-SSEPNET_VARIANTS = {TARGET_VARIANT: get_ssepnet_stage_adapter_fpn_ocr(TARGET_VARIANT)}
-
-
-def _require_target(name: str) -> str:
-    key = str(name).strip().lower().replace("-", "_")
-    if key != TARGET_VARIANT:
-        raise ValueError(
-            f"This minimal release contains only {TARGET_VARIANT!r}; got {name!r}"
-        )
-    return key
-
-
-def build_ssepnet_variant(
-    name: str,
-    *,
-    in_chans: int = 4,
-    num_classes: int = 1,
-    pretrained: bool = True,
-    freeze_backbones: bool = False,
-    activation_checkpoint: bool = True,
-    dinov3_adaptation: str = "full",
-    dinov3_lora_rank: int = 0,
-    dinov3_lora_alpha: float | None = None,
-    physical_pruning: bool = False,
-    **_: object,
-):
-    key = _require_target(name)
-    if physical_pruning:
-        raise ValueError("physical_pruning is not part of the published target recipe")
-    return build_ssepnet_stage_adapter_fpn_ocr(
-        key,
-        in_chans=in_chans,
-        num_classes=num_classes,
-        pretrained=pretrained,
-        freeze_backbone=freeze_backbones,
-        activation_checkpoint=activation_checkpoint,
-        dinov3_adaptation=dinov3_adaptation,
-        dinov3_lora_rank=dinov3_lora_rank,
-        dinov3_lora_alpha=dinov3_lora_alpha,
-    )
-
-
-def build_ssepnet_loss(name: str):
-    return build_ssepnet_stage_adapter_fpn_ocr_loss(_require_target(name))
-
-
-def get_ssepnet_variant(name: str) -> StageAdapterFPNOCRSpec:
-    return get_ssepnet_stage_adapter_fpn_ocr(_require_target(name))
-
-
 __all__ = [
-    "TARGET_VARIANT",
     "SSEPNET_VARIANTS",
-    "StageAdapterFPNOCRSpec",
+    "SSEPNET_CANDIDATES",
+    "SSEPNET_OCR_OPTIMIZATIONS",
+    "SSEPNET_DUAL_FPN_OCR",
+    "SSEPNET_MULTISCALE_DINOV3",
+    "SSEPNET_MULTISCALE_DINOV3_V2",
+    "SSEPNET_STAGE_ADAPTER_FPN_OCR",
+    "FlatDINOv3PyramidBackbone",
+    "BalancedSemanticFusion",
+    "DINOV3_ADAPTATION_MODES",
+    "DinoV3AdaptationReport",
+    "QVLoRAQKV",
+    "HRNetContextOCR",
+    "HRNetOnlySSepNet",
+    "DINOv3OnlySSepNet",
+    "DINOv3UnifiedOCRSSepNet",
+    "DINOv3LayerAwareOCRSSepNet",
+    "DINOv3DetailFPNOCR",
+    "MultiscaleDINOv3SSepNet",
+    "DistillableMultiscaleDINOv3V2",
+    "HierarchicalDINOv3Backbone",
+    "PoolHierarchyDINOv3Backbone",
+    "SemanticAnchorGatedPyramidOCRHead",
+    "SemanticResidualGate",
+    "StageAdapterDINOv3Backbone",
     "StageAdapterFPNSSepNet",
     "StageAdapterStandardFPNBinaryHead",
-    "build_ssepnet_variant",
+    "StageAdapterStandardFPNOCRHead",
+    "SSepNet",
+    "SSepNetVariantSpec",
+    "SSepNetCandidateSpec",
+    "SSepNetOCROptimizationSpec",
+    "DualFPNOCRSpec",
+    "MultiscaleDINOv3Spec",
+    "MultiscaleDINOv3V2Spec",
+    "StageAdapterFPNOCRSpec",
+    "P4AnchoredSemanticFusion",
+    "build_ssepnet_candidate",
+    "build_ssepnet_candidate_loss",
+    "build_ssepnet_ocr_optimization",
+    "build_ssepnet_ocr_optimization_loss",
+    "build_ssepnet_dual_fpn_ocr",
+    "build_ssepnet_dual_fpn_ocr_loss",
+    "build_ssepnet_multiscale_dinov3",
+    "build_ssepnet_multiscale_dinov3_loss",
+    "build_ssepnet_multiscale_dinov3_v2",
+    "build_ssepnet_multiscale_dinov3_v2_loss",
+    "build_ssepnet_stage_adapter_fpn_ocr",
+    "build_ssepnet_stage_adapter_fpn_ocr_loss",
     "build_ssepnet_loss",
+    "build_ssepnet_variant",
     "get_ssepnet_variant",
+    "get_ssepnet_candidate",
+    "is_ssepnet_candidate",
+    "get_ssepnet_ocr_optimization",
+    "is_ssepnet_ocr_optimization",
+    "get_ssepnet_dual_fpn_ocr",
+    "is_ssepnet_dual_fpn_ocr",
+    "get_ssepnet_multiscale_dinov3",
+    "is_ssepnet_multiscale_dinov3",
+    "get_ssepnet_multiscale_dinov3_v2",
+    "is_ssepnet_multiscale_dinov3_v2",
+    "get_ssepnet_stage_adapter_fpn_ocr",
+    "is_ssepnet_stage_adapter_fpn_ocr",
+    "configure_dinov3_adaptation",
+    "merge_dinov3_qv_lora",
+    "build_context_hybrid_loss",
+    "build_hrnet_context_variant",
 ]
+from .context import HRNetContextOCR, build_context_hybrid_loss, build_hrnet_context_variant

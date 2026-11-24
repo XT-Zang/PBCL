@@ -1,0 +1,13 @@
+method,seed,gt,under,over,signed,absolute,empty_components
+ssepnet__base,42,16669,605,443,-162,1048,13
+ssepnet__boundary,42,16669,714,355,-359,1069,10
+ssepnet__pbcl,42,16669,401,750,349,1151,15
+ssepnet__full,42,16669,476,742,266,1218,15
+ssepnet__base,43,16669,590,478,-112,1068,11
+ssepnet__boundary,43,16669,609,450,-159,1059,9
+ssepnet__pbcl,43,16669,412,816,404,1228,7
+ssepnet__full,43,16669,430,817,387,1247,12
+ssepnet__base,44,16669,623,395,-228,1018,15
+ssepnet__boundary,44,16669,522,531,9,1053,19
+ssepnet__pbcl,44,16669,338,1027,689,1365,16
+ssepnet__full,44,16669,428,829,401,1257,11

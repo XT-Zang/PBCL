@@ -1,8 +1,10 @@
 from __future__ import annotations
 
+import numpy as np
 import torch
 
 from geoseg.metrics.binary import binary_confusion_tensor, binary_global_stats
+from tools.metric import Evaluator
 
 
 class BinaryMetricAccumulator:
@@ -38,3 +40,32 @@ class BinaryMetricAccumulator:
 
     def reset(self) -> None:
         self.counts.zero_()
+
+
+class MulticlassMetricAccumulator:
+    """Batch-oriented compatibility wrapper around the existing Evaluator."""
+
+    def __init__(self, num_classes: int) -> None:
+        self._evaluator = Evaluator(num_class=int(num_classes))
+
+    @property
+    def confusion_matrix(self) -> np.ndarray:
+        return self._evaluator.confusion_matrix
+
+    @torch.no_grad()
+    def update(self, logits: torch.Tensor, targets: torch.Tensor) -> None:
+        predictions = logits.argmax(dim=1)
+        if targets.ndim == predictions.ndim + 1 and targets.shape[1] == 1:
+            targets = targets[:, 0]
+        packed = torch.stack((targets.long(), predictions.long())).detach().cpu().numpy()
+        self._evaluator.add_batch(packed[0], packed[1])
+
+    def compute(self) -> dict[str, object]:
+        return {
+            "iou_per_class": self._evaluator.Intersection_over_Union(),
+            "f1_per_class": self._evaluator.F1(),
+            "oa": float(self._evaluator.OA()),
+        }
+
+    def reset(self) -> None:
+        self._evaluator.reset()

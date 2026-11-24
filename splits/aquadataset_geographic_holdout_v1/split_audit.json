@@ -1,0 +1,193 @@
+{
+  "crs": "EPSG:32651",
+  "normal_angle_from_east_degrees": 30,
+  "cuts_m": [
+    2091546.7995778362,
+    2105049.445366734
+  ],
+  "half_buffer_m": 512,
+  "zones_in_increasing_projection_order": [
+    "val",
+    "test",
+    "train"
+  ],
+  "summary": {
+    "train": {
+      "tiles": 1768,
+      "positive": 911,
+      "background": 857,
+      "sensors": {
+        "GF1": 639,
+        "GF6": 1129
+      },
+      "scenes": {
+        "GF1_PMS1_E121.0_N33.0_20260328_L1A14332093001_pansharpen": 16,
+        "GF1_PMS1_E121.1_N33.3_20260328_L1A14332092001_pansharpen": 227,
+        "GF1_PMS2_E121.3_N32.7_20260328_L1A14331987001_pansharpen": 61,
+        "GF1_PMS2_E121.4_N33.0_20260328_L1A14331986001_pansharpen": 335,
+        "GF6_PMS_E120.9_N32.8_20250209_L1A1420544205-MUX_fuse": 247,
+        "GF6_PMS_E121.4_N32.8_20240322_L1A1420429944-MUX_fuse": 386,
+        "GF6_PMS_E121.6_N32.8_20250213_L1A1420545504-MUX_fuse": 496
+      },
+      "historical_splits": {
+        "test": 1058,
+        "train": 501,
+        "val": 209
+      },
+      "source_pairs_1_5": 243,
+      "object_group_pairs_1_5": 90,
+      "source_pairs_by_sensor": {
+        "GF1": {
+          "1_2": 34,
+          "3_5": 62
+        },
+        "GF6": {
+          "1_2": 27,
+          "3_5": 120
+        }
+      }
+    },
+    "val": {
+      "tiles": 879,
+      "positive": 280,
+      "background": 599,
+      "sensors": {
+        "GF1": 173,
+        "GF6": 706
+      },
+      "scenes": {
+        "GF1_PMS1_E121.0_N33.0_20260328_L1A14332093001_pansharpen": 4,
+        "GF1_PMS2_E121.3_N32.7_20260328_L1A14331987001_pansharpen": 169,
+        "GF6_PMS_E120.9_N32.8_20250209_L1A1420544205-MUX_fuse": 329,
+        "GF6_PMS_E121.4_N32.8_20240322_L1A1420429944-MUX_fuse": 266,
+        "GF6_PMS_E121.6_N32.8_20250213_L1A1420545504-MUX_fuse": 111
+      },
+      "historical_splits": {
+        "test": 111,
+        "train": 658,
+        "val": 110
+      },
+      "source_pairs_1_5": 355,
+      "object_group_pairs_1_5": 55,
+      "source_pairs_by_sensor": {
+        "GF1": {
+          "1_2": 40,
+          "3_5": 50
+        },
+        "GF6": {
+          "1_2": 116,
+          "3_5": 149
+        }
+      }
+    },
+    "test": {
+      "tiles": 563,
+      "positive": 339,
+      "background": 224,
+      "sensors": {
+        "GF1": 180,
+        "GF6": 383
+      },
+      "scenes": {
+        "GF1_PMS1_E121.0_N33.0_20260328_L1A14332093001_pansharpen": 7,
+        "GF1_PMS1_E121.1_N33.3_20260328_L1A14332092001_pansharpen": 8,
+        "GF1_PMS2_E121.3_N32.7_20260328_L1A14331987001_pansharpen": 159,
+        "GF1_PMS2_E121.4_N33.0_20260328_L1A14331986001_pansharpen": 6,
+        "GF6_PMS_E120.9_N32.8_20250209_L1A1420544205-MUX_fuse": 114,
+        "GF6_PMS_E121.4_N32.8_20240322_L1A1420429944-MUX_fuse": 157,
+        "GF6_PMS_E121.6_N32.8_20250213_L1A1420545504-MUX_fuse": 112
+      },
+      "historical_splits": {
+        "test": 126,
+        "train": 371,
+        "val": 66
+      },
+      "source_pairs_1_5": 162,
+      "object_group_pairs_1_5": 59,
+      "source_pairs_by_sensor": {
+        "GF1": {
+          "1_2": 14,
+          "3_5": 18
+        },
+        "GF6": {
+          "1_2": 47,
+          "3_5": 83
+        }
+      }
+    },
+    "excluded": {
+      "tiles": 338,
+      "positive": 244,
+      "background": 94,
+      "sensors": {
+        "GF1": 92,
+        "GF6": 246
+      },
+      "scenes": {
+        "GF1_PMS1_E121.0_N33.0_20260328_L1A14332093001_pansharpen": 15,
+        "GF1_PMS1_E121.1_N33.3_20260328_L1A14332092001_pansharpen": 5,
+        "GF1_PMS2_E121.3_N32.7_20260328_L1A14331987001_pansharpen": 67,
+        "GF1_PMS2_E121.4_N33.0_20260328_L1A14331986001_pansharpen": 5,
+        "GF6_PMS_E120.9_N32.8_20250209_L1A1420544205-MUX_fuse": 76,
+        "GF6_PMS_E121.4_N32.8_20240322_L1A1420429944-MUX_fuse": 93,
+        "GF6_PMS_E121.6_N32.8_20250213_L1A1420545504-MUX_fuse": 77
+      },
+      "historical_splits": {
+        "test": 87,
+        "train": 204,
+        "val": 47
+      },
+      "source_pairs_1_5": 227,
+      "object_group_pairs_1_5": 106,
+      "source_pairs_by_sensor": {
+        "GF1": {
+          "1_2": 6,
+          "3_5": 12
+        },
+        "GF6": {
+          "1_2": 87,
+          "3_5": 122
+        }
+      },
+      "reasons": {
+        "observed_object_group_crosses_cut_or_buffer": 37,
+        "valid_footprint_crosses_cut_or_buffer": 301
+      }
+    }
+  },
+  "isolation": [
+    {
+      "splits": [
+        "train",
+        "val"
+      ],
+      "shared_object_groups": 0,
+      "valid_footprint_overlap_m2": 0.0,
+      "minimum_distance_m": 14695.461392519583,
+      "left_objects_overlap_right_input_m2": 0.0,
+      "right_objects_overlap_left_input_m2": 0.0
+    },
+    {
+      "splits": [
+        "train",
+        "test"
+      ],
+      "shared_object_groups": 0,
+      "valid_footprint_overlap_m2": 0.0,
+      "minimum_distance_m": 1557.9281672486818,
+      "left_objects_overlap_right_input_m2": 0.0,
+      "right_objects_overlap_left_input_m2": 0.0
+    },
+    {
+      "splits": [
+        "val",
+        "test"
+      ],
+      "shared_object_groups": 0,
+      "valid_footprint_overlap_m2": 0.0,
+      "minimum_distance_m": 1376.883187456674,
+      "left_objects_overlap_right_input_m2": 0.0,
+      "right_objects_overlap_left_input_m2": 0.0
+    }
+  ]
+}

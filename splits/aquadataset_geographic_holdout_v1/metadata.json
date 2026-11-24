@@ -1,0 +1,18 @@
+{
+  "dataset_name": "AquaDateset",
+  "version": "aquav3-geographic-holdout-v1",
+  "parent_version": "aquav3-sceneholdout-v1",
+  "source_root": "<redacted>/AquaDateset",
+  "task": "binary_semantic_segmentation_with_instance_aware_training_targets",
+  "split_counts": {
+    "train": 1768,
+    "val": 879,
+    "test": 563
+  },
+  "split_hashes": {
+    "train": "92a344ba7f04002c4c05413afd3dfaf1c0d7c712f30e55b6220966a195783c05",
+    "val": "faf6d03d62ae58480ad17872a4c1addd1a49f188deffdc4562093bbd2d5415fb",
+    "test": "9907af5098dbfcf0f8468f5109f8a3ff9e8cb3ffb9ae41aab97407a31d19afb7"
+  },
+  "normalization_sha256": "6127fad17c48cd2436e03aa7105ea33b5a552d127f5d70e6224fea9647488351"
+}

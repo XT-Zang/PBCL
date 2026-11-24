@@ -1,0 +1,182 @@
+[
+  {
+    "dataset": "aqua",
+    "method": "boundary",
+    "seed": 42,
+    "threshold": 0.5,
+    "val_target_recall": 0.9629088140847865,
+    "val_selected_recall": 0.9629088140847865,
+    "val_recall_gap": 0.0,
+    "checkpoint_sha256": "af2b718b3e608d8baf4df8985e3417d3fc5a001b2bee8644482a108c9622c82a"
+  },
+  {
+    "dataset": "aqua",
+    "method": "full",
+    "seed": 42,
+    "threshold": 0.44,
+    "val_target_recall": 0.9629088140847865,
+    "val_selected_recall": 0.9625884011576891,
+    "val_recall_gap": -0.000320412927097391,
+    "checkpoint_sha256": "079e4bcd079c53dccde650d67770588cf9aeac8170da82170ff88ab0d136c260"
+  },
+  {
+    "dataset": "aqua",
+    "method": "split",
+    "seed": 42,
+    "threshold": 0.21,
+    "val_target_recall": 0.9629088140847865,
+    "val_selected_recall": 0.9631545089946288,
+    "val_recall_gap": 0.0002456949098423866,
+    "checkpoint_sha256": "36f4737e360de2b0e97263a15ac474b9a15be858cae0fb8a034aedee8ca3fea6"
+  },
+  {
+    "dataset": "aqua",
+    "method": "boundary",
+    "seed": 43,
+    "threshold": 0.5,
+    "val_target_recall": 0.9619059022538077,
+    "val_selected_recall": 0.9619059022538077,
+    "val_recall_gap": 0.0,
+    "checkpoint_sha256": "39b1d2fa45514a1799d8763c6e8976847123c34b42edab2366c5408f9898c5ce"
+  },
+  {
+    "dataset": "aqua",
+    "method": "full",
+    "seed": 43,
+    "threshold": 0.43,
+    "val_target_recall": 0.9619059022538077,
+    "val_selected_recall": 0.9621942680187517,
+    "val_recall_gap": 0.0002883657649440652,
+    "checkpoint_sha256": "b0eeeb944cb167255b670ac45bf009c84e34c52b6999c9edebb91e73528c7ff5"
+  },
+  {
+    "dataset": "aqua",
+    "method": "split",
+    "seed": 43,
+    "threshold": 0.22,
+    "val_target_recall": 0.9619059022538077,
+    "val_selected_recall": 0.9616658420098384,
+    "val_recall_gap": -0.0002400602439692756,
+    "checkpoint_sha256": "99cffa56b259cce76121fa8e4965eece5be10f051b9d64542b1b263849ec7635"
+  },
+  {
+    "dataset": "aqua",
+    "method": "boundary",
+    "seed": 44,
+    "threshold": 0.5,
+    "val_target_recall": 0.9628399655111493,
+    "val_selected_recall": 0.9628399655111493,
+    "val_recall_gap": 0.0,
+    "checkpoint_sha256": "708ead04aac7229dc01b5b211151cc1fd2385dbee783f4e1c55c0cef3bca4c7a"
+  },
+  {
+    "dataset": "aqua",
+    "method": "full",
+    "seed": 44,
+    "threshold": 0.41,
+    "val_target_recall": 0.9628399655111493,
+    "val_selected_recall": 0.9629634586048684,
+    "val_recall_gap": 0.0001234930937191736,
+    "checkpoint_sha256": "640890affb74dec13be48b7ca97774ed40e86f657496dfe5941bc9d906e9add9"
+  },
+  {
+    "dataset": "aqua",
+    "method": "split",
+    "seed": 44,
+    "threshold": 0.22,
+    "val_target_recall": 0.9628399655111493,
+    "val_selected_recall": 0.9626308959294821,
+    "val_recall_gap": -0.00020906958166710954,
+    "checkpoint_sha256": "42eef80faaae24bca18c8118b15ae6610fcd3e31fe711fddffbee1371bd9f538"
+  },
+  {
+    "dataset": "vegas",
+    "method": "boundary",
+    "seed": 42,
+    "threshold": 0.5,
+    "val_target_recall": 0.9168321905415926,
+    "val_selected_recall": 0.9168321905415926,
+    "val_recall_gap": 0.0,
+    "checkpoint_sha256": "f051474fc66e7cb109a5ee66ea9b1ff216f725e72cabbc7017263913d0123b9d"
+  },
+  {
+    "dataset": "vegas",
+    "method": "full",
+    "seed": 42,
+    "threshold": 0.5,
+    "val_target_recall": 0.9168321905415926,
+    "val_selected_recall": 0.9170783415512623,
+    "val_recall_gap": 0.00024615100966973724,
+    "checkpoint_sha256": "c77a315615b3162055bd6285554713cc039867e1fae5fbdccae24d5816f4b52e"
+  },
+  {
+    "dataset": "vegas",
+    "method": "split",
+    "seed": 42,
+    "threshold": 0.28,
+    "val_target_recall": 0.9168321905415926,
+    "val_selected_recall": 0.91587506766499,
+    "val_recall_gap": -0.0009571228766025452,
+    "checkpoint_sha256": "a09e13780aa7276562fd408ec9c494084bb7999ed5a289bb23b3b00c7f792ab2"
+  },
+  {
+    "dataset": "vegas",
+    "method": "boundary",
+    "seed": 43,
+    "threshold": 0.5,
+    "val_target_recall": 0.9186535193013057,
+    "val_selected_recall": 0.9186535193013057,
+    "val_recall_gap": 0.0,
+    "checkpoint_sha256": "e39427c086c4adfc0db0d3b37605b85b44d6138e07530707098b0ea459a6a1c6"
+  },
+  {
+    "dataset": "vegas",
+    "method": "full",
+    "seed": 43,
+    "threshold": 0.48,
+    "val_target_recall": 0.9186535193013057,
+    "val_selected_recall": 0.9187673125423835,
+    "val_recall_gap": 0.00011379324107785305,
+    "checkpoint_sha256": "e54de086969a76c162ce27a06f965cfb6e6f07e9e71b4488485e4a30497e60a7"
+  },
+  {
+    "dataset": "vegas",
+    "method": "split",
+    "seed": 43,
+    "threshold": 0.28,
+    "val_target_recall": 0.9186535193013057,
+    "val_selected_recall": 0.9178662370830282,
+    "val_recall_gap": -0.0007872822182775074,
+    "checkpoint_sha256": "97a624dab87cea4d7af36c46f76e9556f817f0a62cb2c8b38092e9791ea4fc4c"
+  },
+  {
+    "dataset": "vegas",
+    "method": "boundary",
+    "seed": 44,
+    "threshold": 0.5,
+    "val_target_recall": 0.9174025013188599,
+    "val_selected_recall": 0.9174025013188599,
+    "val_recall_gap": 0.0,
+    "checkpoint_sha256": "b39ed89214e66dd148fce4541cf78649ec488aae16eb608241a98b7936f9ae47"
+  },
+  {
+    "dataset": "vegas",
+    "method": "full",
+    "seed": 44,
+    "threshold": 0.47,
+    "val_target_recall": 0.9174025013188599,
+    "val_selected_recall": 0.9177195372143999,
+    "val_recall_gap": 0.00031703589553999656,
+    "checkpoint_sha256": "39197fd1586709ca042703f16e608da7b774feb85137fe7a4808df4c802aad3d"
+  },
+  {
+    "dataset": "vegas",
+    "method": "split",
+    "seed": 44,
+    "threshold": 0.28,
+    "val_target_recall": 0.9174025013188599,
+    "val_selected_recall": 0.9181457900888351,
+    "val_recall_gap": 0.0007432887699752033,
+    "checkpoint_sha256": "fa63f53403cda2b1da966bfb39545efa942b393f8d0596f9c3f0c5ae131025a1"
+  }
+]

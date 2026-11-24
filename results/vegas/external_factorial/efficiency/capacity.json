@@ -1,0 +1,30 @@
+{
+  "unetplusplus": {
+    "microbatch": 12,
+    "peak_mib": 19070.326171875
+  },
+  "deeplabv3plus": {
+    "microbatch": 12,
+    "peak_mib": 7902.1669921875
+  },
+  "segformer_b2": {
+    "microbatch": 12,
+    "peak_mib": 18369.759765625
+  },
+  "unetformer": {
+    "microbatch": 12,
+    "peak_mib": 4219.63916015625
+  },
+  "dcswin_base": {
+    "microbatch": 6,
+    "peak_mib": 12145.4619140625
+  },
+  "mask2former_swin_t": {
+    "microbatch": 6,
+    "peak_mib": 14327.9306640625
+  },
+  "vmamba_fpn": {
+    "microbatch": 6,
+    "peak_mib": 3082.2783203125
+  }
+}

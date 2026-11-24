@@ -1,0 +1,29 @@
+configuration,status,baseline_samples_per_second,baseline_end_to_end_seconds,baseline_peak_mib,speedup,equivalent,diagnosis
+unetplusplus__base,normal,41.61844494980339,85.20614477200434,19070.24072265625,,,Baseline qualified.
+unetplusplus__boundary,normal,40.359303601650666,84.11931555496994,19070.3203125,,,Baseline qualified.
+unetplusplus__pbcl,diagnosed_original,30.828168161287852,104.33455393399345,19070.24072265625,,,"The measured training time is dominated by the model, supervision and optimizer. Loader/transfer wait 4.1%; full-epoch validation 14.2%."
+unetplusplus__full,diagnosed_original,30.36547451663018,111.47160977695603,19070.3203125,,,"The measured training time is dominated by the model, supervision and optimizer. Loader/transfer wait 3.5%; full-epoch validation 12.9%."
+deeplabv3plus__base,normal,97.14334858743459,48.7702356739901,7878.7626953125,,,Baseline qualified.
+deeplabv3plus__boundary,normal,93.75613648607964,45.73039666598197,7879.89697265625,,,Baseline qualified.
+deeplabv3plus__pbcl,diagnosed_original,55.95607676149691,69.64979650900932,7878.7626953125,,,"The measured training time is dominated by the model, supervision and optimizer. Loader/transfer wait 6.2%; full-epoch validation 17.6%."
+deeplabv3plus__full,diagnosed_original,55.11888456227946,65.85934720002115,7879.89697265625,,,"The measured training time is dominated by the model, supervision and optimizer. Loader/transfer wait 4.0%; full-epoch validation 18.9%."
+segformer_b2__base,normal,74.50811365444662,54.40735703200335,18373.2041015625,,,Baseline qualified.
+segformer_b2__boundary,normal,72.46276584547067,51.25162055401597,18373.49462890625,,,Baseline qualified.
+segformer_b2__pbcl,diagnosed_original,45.74245695134463,79.26753698999528,18373.2041015625,,,"The measured training time is dominated by the model, supervision and optimizer. Loader/transfer wait 4.7%; full-epoch validation 15.9%."
+segformer_b2__full,diagnosed_original,44.849605844679694,78.3512962369714,18373.49462890625,,,"The measured training time is dominated by the model, supervision and optimizer. Loader/transfer wait 4.8%; full-epoch validation 16.7%."
+unetformer__base,normal,89.00696185518866,52.628822257043794,3467.65087890625,,,Baseline qualified.
+unetformer__boundary,normal,91.16909623917671,42.995054212980904,3614.4736328125,,,Baseline qualified.
+unetformer__pbcl,diagnosed_original,72.23526223111219,58.024942060990725,3666.74853515625,,,"The measured training time is dominated by the model, supervision and optimizer. Loader/transfer wait 4.9%; full-epoch validation 21.6%."
+unetformer__full,diagnosed_original,74.11687316794139,58.31587352702627,3812.33056640625,,,"The measured training time is dominated by the model, supervision and optimizer. Loader/transfer wait 6.4%; full-epoch validation 20.3%."
+dcswin_base__base,normal,48.115067408263656,72.80908447602997,11961.83740234375,,,Baseline qualified.
+dcswin_base__boundary,normal,47.65152358188344,72.0816308510257,12034.1982421875,,,Baseline qualified.
+dcswin_base__pbcl,diagnosed_original,34.640121985742496,92.65477843704866,11959.810546875,,,"The measured training time is dominated by the model, supervision and optimizer. Loader/transfer wait 3.0%; full-epoch validation 15.6%."
+dcswin_base__full,diagnosed_original,34.349454635341836,98.49010869004996,12034.1982421875,,,"The measured training time is dominated by the model, supervision and optimizer. Loader/transfer wait 3.8%; full-epoch validation 14.6%."
+mask2former_swin_t__base,diagnosed_original,29.134890700485958,112.92133385100169,14329.5888671875,,,"The measured training time is dominated by the model, supervision and optimizer. Loader/transfer wait 3.7%; full-epoch validation 16.0%."
+mask2former_swin_t__boundary,diagnosed_original,28.627474366087284,118.19680408603745,14328.41552734375,,,"The measured training time is dominated by the model, supervision and optimizer. Loader/transfer wait 2.9%; full-epoch validation 15.3%."
+mask2former_swin_t__pbcl,diagnosed_original,23.881050373113315,138.31649207504233,14327.28125,,,"The measured training time is dominated by the model, supervision and optimizer. Loader/transfer wait 4.4%; full-epoch validation 13.6%."
+mask2former_swin_t__full,diagnosed_original,23.464743031029496,133.55925723799737,14328.41552734375,,,"The measured training time is dominated by the model, supervision and optimizer. Loader/transfer wait 3.0%; full-epoch validation 14.2%."
+vmamba_fpn__base,normal,57.5125162117535,70.26082110102288,3086.2939453125,,,Baseline qualified.
+vmamba_fpn__boundary,normal,55.23909646648072,65.63286800199421,3086.86572265625,,,Baseline qualified.
+vmamba_fpn__pbcl,diagnosed_original,38.47755168796089,93.11680790100945,3086.2939453125,,,"The measured training time is dominated by the model, supervision and optimizer. Loader/transfer wait 3.6%; full-epoch validation 15.0%."
+vmamba_fpn__full,diagnosed_original,38.14056078991362,92.06889671599492,3086.86572265625,,,"The measured training time is dominated by the model, supervision and optimizer. Loader/transfer wait 4.0%; full-epoch validation 15.1%."

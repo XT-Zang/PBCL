@@ -1,0 +1,37 @@
+{
+  "method": "wprf_valid",
+  "admitted": false,
+  "exact": false,
+  "speedup": 1.278902569412258,
+  "projected_peak_bytes": 10439459960,
+  "gpu_capacity_bytes": 25236340736,
+  "cases": [
+    {
+      "loss": 3.559414863586426,
+      "candidate_loss": 3.559414863586426,
+      "recompute_seconds": 1.0538985719904304,
+      "retained_seconds": 0.7450529729976552,
+      "recompute_peak_bytes": 7668665344,
+      "retained_peak_bytes": 7936443904,
+      "all_gradients_bitwise_equal": false
+    },
+    {
+      "loss": 3.4347920417785645,
+      "candidate_loss": 3.4347920417785645,
+      "recompute_seconds": 0.9459204739978304,
+      "retained_seconds": 0.7396345090091927,
+      "recompute_peak_bytes": 7668664832,
+      "retained_peak_bytes": 7903881216,
+      "all_gradients_bitwise_equal": false
+    },
+    {
+      "loss": 3.518139123916626,
+      "candidate_loss": 3.518139123916626,
+      "recompute_seconds": 0.8878802060062299,
+      "retained_seconds": 0.6417320890031988,
+      "recompute_peak_bytes": 7668635648,
+      "retained_peak_bytes": 7808697856,
+      "all_gradients_bitwise_equal": false
+    }
+  ]
+}

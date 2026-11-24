@@ -1,0 +1,211 @@
+dataset,architecture,seed,contrast,metric,delta_pp
+Aqua,ssepnet,42,PBCL-only − Base,fg_iou,0.13913312753738305
+Aqua,ssepnet,42,Full − Boundary,fg_iou,0.12328949932446376
+Aqua,ssepnet,42,Boundary − Base,fg_iou,0.044841731448996835
+Aqua,ssepnet,42,Full − PBCL-only,fg_iou,0.028998103236077544
+Aqua,ssepnet,42,Interaction,fg_iou,-0.015843628212919292
+Aqua,ssepnet,42,PBCL-only − Base,boundary_f1,0.7150119896111584
+Aqua,ssepnet,42,Full − Boundary,boundary_f1,0.6724034952942493
+Aqua,ssepnet,42,Boundary − Base,boundary_f1,-0.125585914254156
+Aqua,ssepnet,42,Full − PBCL-only,boundary_f1,-0.16819440857106516
+Aqua,ssepnet,42,Interaction,boundary_f1,-0.04260849431690916
+Aqua,ssepnet,42,PBCL-only − Base,pq,2.849332631743573
+Aqua,ssepnet,42,Full − Boundary,pq,3.6702787703153605
+Aqua,ssepnet,42,Boundary − Base,pq,-0.2602248095001425
+Aqua,ssepnet,42,Full − PBCL-only,pq,0.5607213290716451
+Aqua,ssepnet,42,Interaction,pq,0.8209461385717876
+Aqua,ssepnet,42,PBCL-only − Base,merge_rate,-4.5321637426900585
+Aqua,ssepnet,42,Full − Boundary,merge_rate,-5.458089668615984
+Aqua,ssepnet,42,Boundary − Base,merge_rate,0.1949317738791423
+Aqua,ssepnet,42,Full − PBCL-only,merge_rate,-0.7309941520467835
+Aqua,ssepnet,42,Interaction,merge_rate,-0.9259259259259256
+Aqua,ssepnet,42,PBCL-only − Base,split_rate,1.023391812865497
+Aqua,ssepnet,42,Full − Boundary,split_rate,0.9259259259259258
+Aqua,ssepnet,42,Boundary − Base,split_rate,0.24366471734892786
+Aqua,ssepnet,42,Full − PBCL-only,split_rate,0.14619883040935672
+Aqua,ssepnet,42,Interaction,split_rate,-0.09746588693957126
+Aqua,ssepnet,42,PBCL-only − Base,close_pair_recall,45.88235294117647
+Aqua,ssepnet,42,Full − Boundary,close_pair_recall,49.411764705882355
+Aqua,ssepnet,42,Boundary − Base,close_pair_recall,0.5882352941176505
+Aqua,ssepnet,42,Full − PBCL-only,close_pair_recall,4.117647058823537
+Aqua,ssepnet,42,Interaction,close_pair_recall,3.529411764705884
+Aqua,ssepnet,42,PBCL-only − Base,count_nmae,-4.922027290448343
+Aqua,ssepnet,42,Full − Boundary,count_nmae,-5.458089668615984
+Aqua,ssepnet,42,Boundary − Base,count_nmae,0.09746588693957114
+Aqua,ssepnet,42,Full − PBCL-only,count_nmae,-0.43859649122807015
+Aqua,ssepnet,42,Interaction,count_nmae,-0.5360623781676415
+Aqua,ssepnet,43,PBCL-only − Base,fg_iou,-0.44324200559581195
+Aqua,ssepnet,43,Full − Boundary,fg_iou,0.44677532074586246
+Aqua,ssepnet,43,Boundary − Base,fg_iou,-0.6113785315576714
+Aqua,ssepnet,43,Full − PBCL-only,fg_iou,0.278638794784003
+Aqua,ssepnet,43,Interaction,fg_iou,0.8900173263416744
+Aqua,ssepnet,43,PBCL-only − Base,boundary_f1,-1.0860588099365187
+Aqua,ssepnet,43,Full − Boundary,boundary_f1,1.067992358992531
+Aqua,ssepnet,43,Boundary − Base,boundary_f1,-1.7387526623621419
+Aqua,ssepnet,43,Full − PBCL-only,boundary_f1,0.4152985065669079
+Aqua,ssepnet,43,Interaction,boundary_f1,2.15405116892905
+Aqua,ssepnet,43,PBCL-only − Base,pq,-0.1738375729321895
+Aqua,ssepnet,43,Full − Boundary,pq,2.9863180834893366
+Aqua,ssepnet,43,Boundary − Base,pq,-1.0171025959552438
+Aqua,ssepnet,43,Full − PBCL-only,pq,2.1430530604662823
+Aqua,ssepnet,43,Interaction,pq,3.160155656421526
+Aqua,ssepnet,43,PBCL-only − Base,merge_rate,-5.506822612085769
+Aqua,ssepnet,43,Full − Boundary,merge_rate,-4.5321637426900585
+Aqua,ssepnet,43,Boundary − Base,merge_rate,-0.5847953216374269
+Aqua,ssepnet,43,Full − PBCL-only,merge_rate,0.3898635477582846
+Aqua,ssepnet,43,Interaction,merge_rate,0.9746588693957108
+Aqua,ssepnet,43,PBCL-only − Base,split_rate,2.631578947368421
+Aqua,ssepnet,43,Full − Boundary,split_rate,1.120857699805068
+Aqua,ssepnet,43,Boundary − Base,split_rate,0.09746588693957114
+Aqua,ssepnet,43,Full − PBCL-only,split_rate,-1.4132553606237817
+Aqua,ssepnet,43,Interaction,split_rate,-1.5107212475633527
+Aqua,ssepnet,43,PBCL-only − Base,close_pair_recall,51.76470588235295
+Aqua,ssepnet,43,Full − Boundary,close_pair_recall,44.117647058823536
+Aqua,ssepnet,43,Boundary − Base,close_pair_recall,4.705882352941177
+Aqua,ssepnet,43,Full − PBCL-only,close_pair_recall,-2.941176470588236
+Aqua,ssepnet,43,Interaction,close_pair_recall,-7.647058823529413
+Aqua,ssepnet,43,PBCL-only − Base,count_nmae,-0.341130604288499
+Aqua,ssepnet,43,Full − Boundary,count_nmae,-4.337231968810916
+Aqua,ssepnet,43,Boundary − Base,count_nmae,0.4873294346978557
+Aqua,ssepnet,43,Full − PBCL-only,count_nmae,-3.508771929824561
+Aqua,ssepnet,43,Interaction,count_nmae,-3.996101364522417
+Aqua,ssepnet,44,PBCL-only − Base,fg_iou,-0.33139094922578494
+Aqua,ssepnet,44,Full − Boundary,fg_iou,0.030023313506921667
+Aqua,ssepnet,44,Boundary − Base,fg_iou,-0.039924884914899206
+Aqua,ssepnet,44,Full − PBCL-only,fg_iou,0.3214893778178074
+Aqua,ssepnet,44,Interaction,fg_iou,0.3614142627327066
+Aqua,ssepnet,44,PBCL-only − Base,boundary_f1,-0.1293468163212963
+Aqua,ssepnet,44,Full − Boundary,boundary_f1,0.11169050360702037
+Aqua,ssepnet,44,Boundary − Base,boundary_f1,0.13692574173883587
+Aqua,ssepnet,44,Full − PBCL-only,boundary_f1,0.37796306166715254
+Aqua,ssepnet,44,Interaction,boundary_f1,0.24103731992831667
+Aqua,ssepnet,44,PBCL-only − Base,pq,2.1857224543046283
+Aqua,ssepnet,44,Full − Boundary,pq,2.141576457572403
+Aqua,ssepnet,44,Boundary − Base,pq,0.6094726610608614
+Aqua,ssepnet,44,Full − PBCL-only,pq,0.5653266643286359
+Aqua,ssepnet,44,Interaction,pq,-0.04414599673222552
+Aqua,ssepnet,44,PBCL-only − Base,merge_rate,-4.678362573099415
+Aqua,ssepnet,44,Full − Boundary,merge_rate,-4.28849902534113
+Aqua,ssepnet,44,Boundary − Base,merge_rate,-0.43859649122807015
+Aqua,ssepnet,44,Full − PBCL-only,merge_rate,-0.04873294346978557
+Aqua,ssepnet,44,Interaction,merge_rate,0.389863547758285
+Aqua,ssepnet,44,PBCL-only − Base,split_rate,0.9746588693957114
+Aqua,ssepnet,44,Full − Boundary,split_rate,0.9259259259259258
+Aqua,ssepnet,44,Boundary − Base,split_rate,0.04873294346978557
+Aqua,ssepnet,44,Full − PBCL-only,split_rate,0.0
+Aqua,ssepnet,44,Interaction,split_rate,-0.04873294346978563
+Aqua,ssepnet,44,PBCL-only − Base,close_pair_recall,45.88235294117647
+Aqua,ssepnet,44,Full − Boundary,close_pair_recall,42.94117647058824
+Aqua,ssepnet,44,Boundary − Base,close_pair_recall,2.352941176470591
+Aqua,ssepnet,44,Full − PBCL-only,close_pair_recall,-0.588235294117645
+Aqua,ssepnet,44,Interaction,close_pair_recall,-2.941176470588232
+Aqua,ssepnet,44,PBCL-only − Base,count_nmae,-4.483430799220272
+Aqua,ssepnet,44,Full − Boundary,count_nmae,-3.41130604288499
+Aqua,ssepnet,44,Boundary − Base,count_nmae,-1.608187134502924
+Aqua,ssepnet,44,Full − PBCL-only,count_nmae,-0.5360623781676412
+Aqua,ssepnet,44,Interaction,count_nmae,1.0721247563352825
+Vegas,ssepnet,42,PBCL-only − Base,fg_iou,-0.2531143972434591
+Vegas,ssepnet,42,Full − Boundary,fg_iou,-0.021081134395406487
+Vegas,ssepnet,42,Boundary − Base,fg_iou,-0.15798214586656423
+Vegas,ssepnet,42,Full − PBCL-only,fg_iou,0.07405111698148836
+Vegas,ssepnet,42,Interaction,fg_iou,0.2320332628480526
+Vegas,ssepnet,42,PBCL-only − Base,boundary_f1,-0.1941460130582051
+Vegas,ssepnet,42,Full − Boundary,boundary_f1,0.020485233915878975
+Vegas,ssepnet,42,Boundary − Base,boundary_f1,-0.29283823004551124
+Vegas,ssepnet,42,Full − PBCL-only,boundary_f1,-0.07820698307142715
+Vegas,ssepnet,42,Interaction,boundary_f1,0.2146312469740841
+Vegas,ssepnet,42,PBCL-only − Base,pq,-0.18087679916768407
+Vegas,ssepnet,42,Full − Boundary,pq,-0.6682265435331347
+Vegas,ssepnet,42,Boundary − Base,pq,0.34975240781303096
+Vegas,ssepnet,42,Full − PBCL-only,pq,-0.13759733655241968
+Vegas,ssepnet,42,Interaction,pq,-0.48734974436545064
+Vegas,ssepnet,42,PBCL-only − Base,merge_rate,-1.0678505009298698
+Vegas,ssepnet,42,Full − Boundary,merge_rate,-0.8398824164616955
+Vegas,ssepnet,42,Boundary − Base,merge_rate,0.03599496070550122
+Vegas,ssepnet,42,Full − PBCL-only,merge_rate,0.26396304517367564
+Vegas,ssepnet,42,Interaction,merge_rate,0.2279680844681743
+Vegas,ssepnet,42,PBCL-only − Base,split_rate,0.6119143319935209
+Vegas,ssepnet,42,Full − Boundary,split_rate,0.6179134921111045
+Vegas,ssepnet,42,Boundary − Base,split_rate,-0.029995800587917683
+Vegas,ssepnet,42,Full − PBCL-only,split_rate,-0.023996640470334146
+Vegas,ssepnet,42,Interaction,split_rate,0.005999160117583613
+Vegas,ssepnet,42,PBCL-only − Base,close_pair_recall,7.616146230007614
+Vegas,ssepnet,42,Full − Boundary,close_pair_recall,8.987052551408992
+Vegas,ssepnet,42,Boundary − Base,close_pair_recall,-1.2185833968012205
+Vegas,ssepnet,42,Full − PBCL-only,close_pair_recall,0.15232292460015673
+Vegas,ssepnet,42,Interaction,close_pair_recall,1.3709063214013772
+Vegas,ssepnet,42,PBCL-only − Base,count_nmae,0.6179134921111051
+Vegas,ssepnet,42,Full − Boundary,count_nmae,0.8938748575199482
+Vegas,ssepnet,42,Boundary − Base,count_nmae,0.1259823624692541
+Vegas,ssepnet,42,Full − PBCL-only,count_nmae,0.4019437278780971
+Vegas,ssepnet,42,Interaction,count_nmae,0.2759613654088431
+Vegas,ssepnet,43,PBCL-only − Base,fg_iou,0.28348233798423106
+Vegas,ssepnet,43,Full − Boundary,fg_iou,-0.030165913904567354
+Vegas,ssepnet,43,Boundary − Base,fg_iou,0.07234844639112392
+Vegas,ssepnet,43,Full − PBCL-only,fg_iou,-0.2412998054976745
+Vegas,ssepnet,43,Interaction,fg_iou,-0.3136482518887984
+Vegas,ssepnet,43,PBCL-only − Base,boundary_f1,-0.03379346559301277
+Vegas,ssepnet,43,Full − Boundary,boundary_f1,-0.2592565237537925
+Vegas,ssepnet,43,Boundary − Base,boundary_f1,0.16464971561042097
+Vegas,ssepnet,43,Full − PBCL-only,boundary_f1,-0.06081334255035875
+Vegas,ssepnet,43,Interaction,boundary_f1,-0.22546305816077972
+Vegas,ssepnet,43,PBCL-only − Base,pq,-0.43928831821851144
+Vegas,ssepnet,43,Full − Boundary,pq,-0.5393268155912789
+Vegas,ssepnet,43,Boundary − Base,pq,0.14352574038407617
+Vegas,ssepnet,43,Full − PBCL-only,pq,0.043487243011308685
+Vegas,ssepnet,43,Interaction,pq,-0.10003849737276749
+Vegas,ssepnet,43,PBCL-only − Base,merge_rate,-0.8698782170496133
+Vegas,ssepnet,43,Full − Boundary,merge_rate,-0.7139000539924414
+Vegas,ssepnet,43,Boundary − Base,merge_rate,-0.11998320235167073
+Vegas,ssepnet,43,Full − PBCL-only,merge_rate,0.03599496070550122
+Vegas,ssepnet,43,Interaction,merge_rate,0.15597816305717194
+Vegas,ssepnet,43,PBCL-only − Base,split_rate,0.7079008938748574
+Vegas,ssepnet,43,Full − Boundary,split_rate,0.6779050932869396
+Vegas,ssepnet,43,Boundary − Base,split_rate,0.011998320235167073
+Vegas,ssepnet,43,Full − PBCL-only,split_rate,-0.017997480352750783
+Vegas,ssepnet,43,Interaction,split_rate,-0.029995800587917842
+Vegas,ssepnet,43,PBCL-only − Base,close_pair_recall,7.616146230007614
+Vegas,ssepnet,43,Full − Boundary,close_pair_recall,7.539984767707542
+Vegas,ssepnet,43,Boundary − Base,close_pair_recall,0.07616146230007281
+Vegas,ssepnet,43,Full − PBCL-only,close_pair_recall,0.0
+Vegas,ssepnet,43,Interaction,close_pair_recall,-0.07616146230007281
+Vegas,ssepnet,43,PBCL-only − Base,count_nmae,0.9598656188133659
+Vegas,ssepnet,43,Full − Boundary,count_nmae,1.1278421021057055
+Vegas,ssepnet,43,Boundary − Base,count_nmae,-0.05399244105825235
+Vegas,ssepnet,43,Full − PBCL-only,count_nmae,0.11398404223408737
+Vegas,ssepnet,43,Interaction,count_nmae,0.1679764832923396
+Vegas,ssepnet,44,PBCL-only − Base,fg_iou,-0.24982701137418184
+Vegas,ssepnet,44,Full − Boundary,fg_iou,0.07640086203447582
+Vegas,ssepnet,44,Boundary − Base,fg_iou,-0.15044501986541947
+Vegas,ssepnet,44,Full − PBCL-only,fg_iou,0.1757828535432382
+Vegas,ssepnet,44,Interaction,fg_iou,0.32622787340865766
+Vegas,ssepnet,44,PBCL-only − Base,boundary_f1,-0.2938074894130116
+Vegas,ssepnet,44,Full − Boundary,boundary_f1,-0.010417482317959248
+Vegas,ssepnet,44,Boundary − Base,boundary_f1,-0.11539000441572744
+Vegas,ssepnet,44,Full − PBCL-only,boundary_f1,0.1680000026793249
+Vegas,ssepnet,44,Interaction,boundary_f1,0.28339000709505235
+Vegas,ssepnet,44,PBCL-only − Base,pq,-1.6166323062848709
+Vegas,ssepnet,44,Full − Boundary,pq,-0.3221751739173051
+Vegas,ssepnet,44,Boundary − Base,pq,-0.3928763992374851
+Vegas,ssepnet,44,Full − PBCL-only,pq,0.9015807331300807
+Vegas,ssepnet,44,Interaction,pq,1.2944571323675658
+Vegas,ssepnet,44,PBCL-only − Base,merge_rate,-1.3258143859859617
+Vegas,ssepnet,44,Full − Boundary,merge_rate,-0.545923570700102
+Vegas,ssepnet,44,Boundary − Base,merge_rate,-0.23396724458575774
+Vegas,ssepnet,44,Full − PBCL-only,merge_rate,0.545923570700102
+Vegas,ssepnet,44,Interaction,merge_rate,0.7798908152858597
+Vegas,ssepnet,44,PBCL-only − Base,split_rate,1.3318135461035454
+Vegas,ssepnet,44,Full − Boundary,split_rate,0.5519227308176854
+Vegas,ssepnet,44,Boundary − Base,split_rate,0.17397564340992272
+Vegas,ssepnet,44,Full − PBCL-only,split_rate,-0.6059151718759374
+Vegas,ssepnet,44,Interaction,split_rate,-0.77989081528586
+Vegas,ssepnet,44,PBCL-only − Base,close_pair_recall,11.195734958111192
+Vegas,ssepnet,44,Full − Boundary,close_pair_recall,5.255140898705257
+Vegas,ssepnet,44,Boundary − Base,close_pair_recall,1.904036557501898
+Vegas,ssepnet,44,Full − PBCL-only,close_pair_recall,-4.036557501904037
+Vegas,ssepnet,44,Interaction,close_pair_recall,-5.940594059405935
+Vegas,ssepnet,44,PBCL-only − Base,count_nmae,2.0817085608014883
+Vegas,ssepnet,44,Full − Boundary,count_nmae,1.2238286639870422
+Vegas,ssepnet,44,Boundary − Base,count_nmae,0.20997060411542326
+Vegas,ssepnet,44,Full − PBCL-only,count_nmae,-0.6479092926990226
+Vegas,ssepnet,44,Interaction,count_nmae,-0.8578798968144461

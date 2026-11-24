@@ -1,0 +1,27 @@
+{
+  "source_split": "train",
+  "valid_pixels_per_band": 462922240,
+  "validity": "manifest valid rectangle intersect GDAL dataset mask",
+  "bands": [
+    "B",
+    "G",
+    "R",
+    "NIR"
+  ],
+  "clip_min": 100,
+  "clip_max": 60000,
+  "raw_offset": 100,
+  "raw_scale": 59900,
+  "mean": [
+    0.4283148958114594,
+    0.4742396095000263,
+    0.4972901676642826,
+    0.2493678240998108
+  ],
+  "std": [
+    0.2803555311753722,
+    0.285215312193887,
+    0.28198734644281953,
+    0.20028399647466053
+  ]
+}

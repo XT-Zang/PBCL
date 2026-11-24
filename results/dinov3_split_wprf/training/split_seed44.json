@@ -1,0 +1,306 @@
+{
+  "model": {
+    "key": "ssepnet_ms_dinov3_stage_adapter_fpn_ocr_6_6_6_6_binary_boundary",
+    "in_channels": 4,
+    "num_classes": 1,
+    "pretrained": true,
+    "freeze_backbones": false,
+    "activation_checkpoint": true,
+    "pretrained_keys": [
+      "dinov3-vitl16-sat493m"
+    ],
+    "pretrained_sha256": {
+      "dinov3-vitl16-sat493m": "eadcf0ffc02418b6c22a885ea1a7aaeeef84fbf0f5bb4d0b7d1d36e68a964f48"
+    },
+    "pretrained_artifacts": {
+      "dinov3-vitl16-sat493m": {
+        "path": "PRETRAINED/torch/hub/checkpoints/dinov3_vitl16_pretrain_sat493m-eadcf0ff.pth",
+        "sha256": "eadcf0ffc02418b6c22a885ea1a7aaeeef84fbf0f5bb4d0b7d1d36e68a964f48"
+      }
+    },
+    "architecture_revision": "stage_adapter_standard_fpn_ablation_v1",
+    "multiscale_architecture": "stage_adapter",
+    "feature_adapter": "stage_adapter",
+    "stage_depths": [
+      6,
+      6,
+      6,
+      6
+    ],
+    "stage_output_layers": [
+      5,
+      11,
+      17,
+      23
+    ],
+    "semantic_scales": [
+      4,
+      8,
+      16,
+      32
+    ],
+    "stage_dims": [
+      128,
+      256,
+      512,
+      512
+    ],
+    "dropout": 0.05,
+    "active_backbones": [
+      "dinov3"
+    ],
+    "decoder_channels": 128,
+    "ocr_channels": 256,
+    "head_input_channels": 128,
+    "segmentation_head": "standard_fpn_binary_boundary_v1",
+    "semantic_fusion": "additive_top_down_p5_to_p2_then_concat",
+    "head_lineage": "matched_standard_fpn_binary",
+    "ocr_scale": null,
+    "auxiliary_scale": 16,
+    "boundary_scale": 4,
+    "boundary_feature_source": "raw_p2",
+    "head_normalization": "group_norm_fpn_binary",
+    "soft_layer_mixing": false,
+    "boundary_head_enabled": true,
+    "pbcl_weight": 0.0,
+    "pbcl_band_radius": 3,
+    "pbcl_iterations": 9,
+    "pbcl_threshold": 0.5,
+    "pbcl_margin": 0.1,
+    "pbcl_neighbors": 4,
+    "ewc_enabled": false,
+    "affinity_channels": 0,
+    "training_only_affinity_head": false,
+    "ewc_w0": null,
+    "ewc_sigma": null,
+    "ewc_power": null,
+    "requires_ewc_supervision": false,
+    "requires_instance_supervision": false,
+    "supervision_variant": "boundary",
+    "ablation_axis": "supervision",
+    "physical_branch_pruning": true,
+    "dinov3_adaptation": "full",
+    "dinov3_lora_rank": 0,
+    "dinov3_lora_alpha": null,
+    "comparison_axes": [
+      "supervision"
+    ],
+    "class_name": "StageAdapterFPNSSepNet",
+    "parameter_count": 312867783
+  },
+  "data": {
+    "dataset": "aquadataset",
+    "root": "<redacted>/aquav3-geographic-holdout-v1",
+    "dataset_version": "aquav3-geographic-holdout-v1",
+    "splits": {
+      "train": "train",
+      "val": "val",
+      "test": "test"
+    },
+    "split_counts": {
+      "train": 1768,
+      "val": 879,
+      "test": 563
+    },
+    "split_hashes": {
+      "train": "92a344ba7f04002c4c05413afd3dfaf1c0d7c712f30e55b6220966a195783c05",
+      "val": "faf6d03d62ae58480ad17872a4c1addd1a49f188deffdc4562093bbd2d5415fb",
+      "test": "9907af5098dbfcf0f8468f5109f8a3ff9e8cb3ffb9ae41aab97407a31d19afb7"
+    },
+    "bands": [
+      "B",
+      "G",
+      "R",
+      "NIR"
+    ],
+    "band_indices": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "image_size": 512,
+    "raw_clip_min": 100.0,
+    "raw_clip_max": 60000.0,
+    "raw_offset": 100.0,
+    "raw_scale": 59900.0,
+    "normalize_mean": [
+      0.4283148958114594,
+      0.4742396095000263,
+      0.4972901676642826,
+      0.2493678240998108
+    ],
+    "normalize_std": [
+      0.2803555311753722,
+      0.285215312193887,
+      0.28198734644281953,
+      0.20028399647466053
+    ],
+    "normalization_pixel_count_per_channel": 462922240,
+    "instance_target_root": "instance_targets/pbcl_gap5",
+    "ewc_weight_root": null,
+    "wprf_target_root": null,
+    "normalization_sha256": "6127fad17c48cd2436e03aa7105ea33b5a552d127f5d70e6224fea9647488351",
+    "use_manifest_valid_mask": true,
+    "instance_pair_policy": "all"
+  },
+  "loader": {
+    "train_batch_size": 12,
+    "val_batch_size": 8,
+    "test_batch_size": 8,
+    "train_workers": 4,
+    "eval_workers": 2,
+    "pin_memory": true,
+    "drop_last": true,
+    "balanced_sampler": true,
+    "persistent_workers": false,
+    "prefetch_factor": null,
+    "collate": "aquav3",
+    "sampler_generator_stream": 1,
+    "loader_generator_streams": {
+      "train": 2,
+      "val": 3,
+      "test": 4
+    }
+  },
+  "optimization": {
+    "loss": {
+      "name": "SSepNetSplitLoss",
+      "main_bce": 1.0,
+      "main_dice": 1.0,
+      "aux_bce": 0.3,
+      "aux_dice": 0.3,
+      "boundary_weight": 0.6,
+      "boundary_kernel": 5,
+      "pbcl_weight": 0.0,
+      "pbcl_band_radius": 3,
+      "pbcl_iterations": 9,
+      "pbcl_threshold": 0.5,
+      "pbcl_margin": 0.1,
+      "pbcl_neighbors": 4,
+      "split_weight": 0.1,
+      "split_band_kernel": 3
+    },
+    "optimizer": {
+      "name": "AdamW",
+      "base_lr": 0.0002,
+      "encoder_lr": 2e-05,
+      "weight_decay": 0.0001,
+      "encoder_prefixes": [
+        "multiscale_backbone.dinov3_backbone."
+      ],
+      "no_decay_policy": "bias_norm_position_token"
+    },
+    "scheduler": {
+      "name": "warmup_cosine",
+      "warmup_epochs": 3,
+      "min_lr_ratio": 0.02,
+      "schedule_epochs": 40
+    },
+    "gradient_clip_val": 1.0,
+    "accumulate_grad_batches": 1
+  },
+  "runtime": {
+    "seed": 44,
+    "max_epochs": 40,
+    "precision": "bf16-mixed",
+    "devices": "auto",
+    "check_val_every_n_epoch": 1,
+    "num_sanity_val_steps": 0,
+    "compile": false,
+    "channels_last": false,
+    "cudnn_benchmark": false,
+    "ema": false,
+    "random_scale_crop": false
+  },
+  "checkpoint": {
+    "policy": "three_best_validation_v1",
+    "monitors": {
+      "overall": "val_overall_score"
+    },
+    "primary_role": "overall",
+    "monitor": "val_overall_score",
+    "mode": "max",
+    "save_top_k": 1,
+    "every_n_epochs": 0,
+    "start_epoch": 10,
+    "save_last": true,
+    "declared_save_last": true,
+    "selection": "strict_improvement_earliest_tie",
+    "save_weights_only": true,
+    "deduplicate_same_epoch": true,
+    "overall_score": {
+      "name": "region_boundary_object_v1",
+      "weights": {
+        "fg_iou": 0.3,
+        "boundary_f1": 0.2,
+        "pq": 0.25,
+        "close_pair_recall": 0.1,
+        "merge_rate": 0.05,
+        "split_rate": 0.05,
+        "count_nmae": 0.05
+      },
+      "error_terms": [
+        "merge_rate",
+        "split_rate",
+        "count_nmae"
+      ],
+      "error_clip": [
+        0.0,
+        1.0
+      ]
+    },
+    "save_final_state": true,
+    "plain_checkpoint_names": true,
+    "allow_epoch_state_checkpoint": true,
+    "epoch_state_every_n_epochs": 5
+  },
+  "metrics": {
+    "binary": true,
+    "threshold": 0.5,
+    "deadhesion_validation": true,
+    "boundary_width": 2,
+    "boundary_tolerance": 2,
+    "min_overlap_pixels": 8,
+    "min_overlap_ratio": 0.05,
+    "instance_segmentation": false,
+    "instance_score_threshold": 0.5,
+    "instance_mask_threshold": 0.5,
+    "instance_ap_score_threshold": null,
+    "instance_num_queries": 100,
+    "prediction_kind": "connected_components"
+  },
+  "artifacts": {
+    "run_name": "dinov3_aqua_split_seed44",
+    "weights_path": "<redacted>/seed44",
+    "log_name": "dinov3_aqua_comparison/split/seed44",
+    "save_val_predictions": false,
+    "val_prediction_dir": "<redacted>/val_predictions",
+    "async_writes": false,
+    "logger_version": 0,
+    "guard_finite_training_loss": true
+  },
+  "provenance": {
+    "schema_version": 1,
+    "campaign": "aquadataset",
+    "family": "ssepnet_stage_adapter_fpn_ocr",
+    "experiment_id": "ssepnet_ms_dinov3_stage_adapter_fpn_ocr_6_6_6_6_binary_boundary",
+    "model_key": "ssepnet_ms_dinov3_stage_adapter_fpn_ocr_6_6_6_6_binary_boundary",
+    "treatment": "ssepnet_stage_adapter_fpn_ocr",
+    "base_experiment_id": "ssepnet_ms_dinov3_stage_adapter_fpn_ocr_6_6_6_6_binary_head",
+    "training_protocol": "uniform_40ep_stage_adapter_fpn_ocr_v1",
+    "comparison_axes": [
+      "supervision"
+    ],
+    "reference_experiment_id": "ssepnet_ms_dinov3_stage_adapter_fpn_ocr_6_6_6_6_binary_head",
+    "seed_scope": [
+      42,
+      43,
+      44
+    ],
+    "revision": "JSTARS-2026-05520",
+    "revision_treatment": "dinov3_aqua_split",
+    "evaluation_scope": "geographic_holdout_within_existing_acquisitions",
+    "base_revision_treatment": "boundary"
+  }
+}

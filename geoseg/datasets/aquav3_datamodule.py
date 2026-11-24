@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+from pathlib import Path
 from typing import Any
 
 from torch.utils.data import DataLoader
@@ -13,7 +14,7 @@ from .aquav3_dataset import AquaV3ManifestDataset, aquav3_collate, make_balanced
 class AquaV3DataModule:
     """Own AquaV3 datasets and deterministic loaders without building them at import time."""
 
-    def __init__(self, spec: ExperimentSpec) -> None:
+    def __init__(self, spec: ExperimentSpec, *, load_fit_instance_supervision: bool = True) -> None:
         if spec.data.get("dataset") not in {
             "aquav3",
             "aquadataset",
@@ -24,6 +25,7 @@ class AquaV3DataModule:
                 f"got {spec.data.get('dataset')!r}"
             )
         self.spec = spec
+        self.load_fit_instance_supervision = load_fit_instance_supervision
         self.train_dataset: AquaV3ManifestDataset | None = None
         self.val_dataset: AquaV3ManifestDataset | None = None
         self.test_dataset: AquaV3ManifestDataset | None = None
@@ -44,10 +46,14 @@ class AquaV3DataModule:
         return instance
 
     def _dataset(self, split: str, *, augment: bool) -> AquaV3ManifestDataset:
+        cache = self.spec.data.get("validation_ram_cache") if split == "val" else None
+        native_targets = split != "train" and self.spec.data.get("native_eval_targets", False)
+        input_size = int(self.spec.data["image_size"])
         return AquaV3ManifestDataset(
             root=self.spec.data["root"],
             split=split,
-            image_size=int(self.spec.data["image_size"]),
+            image_size=int(self.spec.data["native_size"]) if native_targets else input_size,
+            model_image_size=input_size if native_targets else None,
             band_indices=list(self.spec.data.get("band_indices", [0, 1, 2, 3])),
             augment=augment,
             raw_clip_min=float(self.spec.data.get("raw_clip_min", 100.0)),
@@ -56,8 +62,28 @@ class AquaV3DataModule:
             raw_scale=float(self.spec.data.get("raw_scale", 59900.0)),
             normalize_mean=self.spec.data.get("normalize_mean"),
             normalize_std=self.spec.data.get("normalize_std"),
-            instance_target_root=self.spec.data.get("instance_target_root"),
+            instance_target_root=Path(cache) / "targets" if cache else self.spec.data.get("instance_target_root"),
+            ewc_weight_root=(
+                self.spec.data.get("ewc_weight_root")
+                if split in self.spec.data.get("ewc_weight_splits", ("train", "val", "test"))
+                else None
+            ),
+            wprf_target_root=self.spec.data.get("wprf_target_root"),
+            wprf_semantic_cache=self.spec.data.get("wprf_semantic_cache") if split != "test" else None,
+            wprf_sampling_seed=int(self.spec.runtime["seed"]),
+            wprf_dynamic_from_instance=bool(
+                self.spec.data.get("wprf_dynamic_from_instance", False)
+            ),
             resize_mode=str(self.spec.data.get("resize_mode", "resize")),
+            use_manifest_valid_mask=bool(self.spec.data.get("use_manifest_valid_mask", False)),
+            instance_pair_policy=str(self.spec.data.get("instance_pair_policy", "all")),
+            load_instance_supervision=split == "test" or self.load_fit_instance_supervision,
+            image_cache_root=Path(cache) / "images" if cache else None,
+            skip_gdal_directory_scan=(
+                self.spec.data.get("dataset_version") == "aquav3-geographic-holdout-v1"
+                or bool(self.spec.data.get("skip_gdal_directory_scan", False))
+                or bool(cache)
+            ),
         )
 
     def setup(self, stage: str | None = None) -> None:

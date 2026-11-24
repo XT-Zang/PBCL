@@ -1,0 +1,37 @@
+{
+  "method": "wprf_gt",
+  "admitted": false,
+  "exact": false,
+  "speedup": 1.1957868028271574,
+  "projected_peak_bytes": 10246926968,
+  "gpu_capacity_bytes": 25236340736,
+  "cases": [
+    {
+      "loss": 3.543855905532837,
+      "candidate_loss": 3.543855905532837,
+      "recompute_seconds": 0.7854498240048997,
+      "retained_seconds": 0.5757881400058977,
+      "recompute_peak_bytes": 7668665344,
+      "retained_peak_bytes": 7743910912,
+      "all_gradients_bitwise_equal": false
+    },
+    {
+      "loss": 3.425556182861328,
+      "candidate_loss": 3.425556182861328,
+      "recompute_seconds": 0.6846343279903522,
+      "retained_seconds": 0.5725387889979174,
+      "recompute_peak_bytes": 7668664832,
+      "retained_peak_bytes": 7727664128,
+      "all_gradients_bitwise_equal": false
+    },
+    {
+      "loss": 3.508755683898926,
+      "candidate_loss": 3.508755683898926,
+      "recompute_seconds": 0.6014621679933043,
+      "retained_seconds": 0.5261264529981418,
+      "recompute_peak_bytes": 7668635648,
+      "retained_peak_bytes": 7679942656,
+      "all_gradients_bitwise_equal": false
+    }
+  ]
+}

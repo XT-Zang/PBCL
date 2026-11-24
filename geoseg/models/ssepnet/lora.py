@@ -22,7 +22,13 @@ class DinoV3AdaptationReport:
 class QVLoRAQKV(nn.Module):
     """Add trainable low-rank updates to the query and value thirds of QKV."""
 
-    def __init__(self, base_qkv: nn.Module, *, rank: int, alpha: float | None = None) -> None:
+    def __init__(
+        self,
+        base_qkv: nn.Module,
+        *,
+        rank: int,
+        alpha: float | None = None,
+    ) -> None:
         super().__init__()
         if int(rank) <= 0:
             raise ValueError(f"LoRA rank must be positive, got {rank}")
@@ -30,13 +36,17 @@ class QVLoRAQKV(nn.Module):
             raise TypeError("DINOv3 QKV projection must expose in_features and out_features")
         dim = int(base_qkv.in_features)
         if int(base_qkv.out_features) != dim * 3:
-            raise ValueError("DINOv3 QKV LoRA requires a projection with out_features == 3 * in_features")
+            raise ValueError(
+                "DINOv3 QKV LoRA requires a projection with out_features == 3 * in_features"
+            )
+
         self.base_qkv = base_qkv
         self.rank = int(rank)
         self.alpha = float(self.rank if alpha is None else alpha)
         self.scaling = self.alpha / float(self.rank)
         self.in_features = dim
         self.out_features = dim * 3
+
         weight = next(base_qkv.parameters(), None)
         if weight is None:
             raise ValueError("DINOv3 QKV projection has no parameters")
@@ -64,8 +74,12 @@ class QVLoRAQKV(nn.Module):
         q_delta = self.lora_q_b.weight @ self.lora_q_a.weight
         v_delta = self.lora_v_b.weight @ self.lora_v_a.weight
         with torch.no_grad():
-            self.base_qkv.weight[: self.in_features].add_(q_delta.to(self.base_qkv.weight.dtype), alpha=self.scaling)
-            self.base_qkv.weight[-self.in_features :].add_(v_delta.to(self.base_qkv.weight.dtype), alpha=self.scaling)
+            self.base_qkv.weight[: self.in_features].add_(
+                q_delta.to(self.base_qkv.weight.dtype), alpha=self.scaling
+            )
+            self.base_qkv.weight[-self.in_features :].add_(
+                v_delta.to(self.base_qkv.weight.dtype), alpha=self.scaling
+            )
         return self.base_qkv
 
 
@@ -77,10 +91,19 @@ def _dinov3_blocks(backbone: nn.Module) -> nn.ModuleList:
     return blocks
 
 
-def configure_dinov3_adaptation(backbone: nn.Module, *, mode: str, rank: int = 3, alpha: float | None = None) -> DinoV3AdaptationReport:
+def configure_dinov3_adaptation(
+    backbone: nn.Module,
+    *,
+    mode: str,
+    rank: int = 3,
+    alpha: float | None = None,
+) -> DinoV3AdaptationReport:
     normalized = str(mode).strip().lower()
     if normalized not in DINOV3_ADAPTATION_MODES:
-        raise ValueError(f"Unsupported DINOv3 adaptation mode {mode!r}; choose from {sorted(DINOV3_ADAPTATION_MODES)}")
+        raise ValueError(
+            f"Unsupported DINOv3 adaptation mode {mode!r}; choose from "
+            f"{sorted(DINOV3_ADAPTATION_MODES)}"
+        )
     if normalized == "full":
         backbone.requires_grad_(True)
         return DinoV3AdaptationReport("full", 0, None, (), 0)
@@ -89,6 +112,7 @@ def configure_dinov3_adaptation(backbone: nn.Module, *, mode: str, rank: int = 3
         return DinoV3AdaptationReport("frozen", 0, None, (), 0)
     if int(rank) <= 0:
         raise ValueError(f"LoRA rank must be positive, got {rank}")
+
     backbone.requires_grad_(False)
     target_blocks: list[int] = []
     for index, block in enumerate(_dinov3_blocks(backbone)):
@@ -100,9 +124,16 @@ def configure_dinov3_adaptation(backbone: nn.Module, *, mode: str, rank: int = 3
             raise ValueError(f"DINOv3 block {index} already contains Q/V LoRA")
         attention.qkv = QVLoRAQKV(qkv, rank=int(rank), alpha=alpha)
         target_blocks.append(index)
+
     trainable = sum(parameter.numel() for parameter in backbone.parameters() if parameter.requires_grad)
     effective_alpha = float(rank if alpha is None else alpha)
-    return DinoV3AdaptationReport("lora", int(rank), effective_alpha, tuple(target_blocks), int(trainable))
+    return DinoV3AdaptationReport(
+        "lora",
+        int(rank),
+        effective_alpha,
+        tuple(target_blocks),
+        int(trainable),
+    )
 
 
 def merge_dinov3_qv_lora(backbone: nn.Module) -> tuple[int, ...]:
@@ -116,4 +147,10 @@ def merge_dinov3_qv_lora(backbone: nn.Module) -> tuple[int, ...]:
     return tuple(merged)
 
 
-__all__ = ["DINOV3_ADAPTATION_MODES", "DinoV3AdaptationReport", "QVLoRAQKV", "configure_dinov3_adaptation", "merge_dinov3_qv_lora"]
+__all__ = [
+    "DINOV3_ADAPTATION_MODES",
+    "DinoV3AdaptationReport",
+    "QVLoRAQKV",
+    "configure_dinov3_adaptation",
+    "merge_dinov3_qv_lora",
+]

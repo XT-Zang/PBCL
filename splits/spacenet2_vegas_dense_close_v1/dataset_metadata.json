@@ -1,0 +1,69 @@
+{
+  "buffer_excluded": 149,
+  "dataset": "VegasDenseClosePBCL_v1",
+  "manifest_sha256": {
+    "test": "db71aca5db3bdc910b546db7f65a4702cc0ac6b55992e8ba07da204373b9cb69",
+    "train": "2e8ba0e26935d2daebe47ae506dc47e4c8489f57a3a44ca8327887257846ecf5",
+    "val": "d30afb909b9e46bdfa581634ae706aa6683cd9ca9856035a82c288d93dd46893"
+  },
+  "native_size": 650,
+  "normalization_pixel_count_per_channel": 1061742500,
+  "normalization_scope": "all native train pixels including source zeros",
+  "normalize_mean": [
+    0.21361868299521208,
+    0.28357311705749805,
+    0.2037835906844101,
+    0.26128937004691777
+  ],
+  "normalize_std": [
+    0.08266655238646263,
+    0.13001066432460615,
+    0.11424660999428865,
+    0.125842682571778
+  ],
+  "padded_size": 672,
+  "padding": {
+    "bottom": 22,
+    "left": 0,
+    "right": 22,
+    "top": 0
+  },
+  "padding_excluded_by_valid_mask": true,
+  "protocol_root": "<redacted>/VegasDenseClosePBCL_v1",
+  "raw_clip_max": 2047.0,
+  "raw_clip_min": 0.0,
+  "raw_offset": 0.0,
+  "raw_scale": 2047.0,
+  "selected_band_indices_rasterio": [
+    2,
+    3,
+    5,
+    7
+  ],
+  "selected_band_indices_zero_based": [
+    1,
+    2,
+    4,
+    6
+  ],
+  "selected_bands": [
+    "B",
+    "G",
+    "R",
+    "NIR1"
+  ],
+  "source_band_count": 8,
+  "source_root": "<redacted>/Vegas",
+  "source_split_sha256": {
+    "test": "5f04de526730573215dd2338e3353bdc38f86d0ed3c66abb383bbf877500eec4",
+    "train": "dadaa11a8bda6d8190ae30712fab8170072f8426f404b60f6416a6818c9153fe",
+    "val": "739180bf804295151c194ec3f157c54d7f056d1a7afdd7878d945d512d219d78"
+  },
+  "split_counts": {
+    "test": 568,
+    "train": 2513,
+    "val": 621
+  },
+  "target_count": 3702,
+  "version": "spacenet2-vegas-dense-close-v1"
+}

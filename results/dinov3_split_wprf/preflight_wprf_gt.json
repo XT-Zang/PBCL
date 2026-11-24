@@ -1,0 +1,62 @@
+{
+  "active_epoch_simulated": 5,
+  "train_step_seconds": [
+    15.404527140010032,
+    0.8795772430021316,
+    0.721692681996501
+  ],
+  "peak_allocated_gib": 9.436595439910889,
+  "affinity_gradient": "nonzero",
+  "negative_gradient_audit": {
+    "epoch": 5,
+    "support": "gt",
+    "denominator": "all cached negatives in the first batch with negatives at this epoch",
+    "scales": {
+      "1": {
+        "negative_records": 223,
+        "positive_scores": 0,
+        "derivative_eligible_scores": 0,
+        "legal_path_records": 0,
+        "nonzero_query_gradient_fraction": 0.0,
+        "isolated_negative_gradient_norm": 0.0,
+        "isolated_negative_gradient_max": 0.0
+      },
+      "2": {
+        "negative_records": 210,
+        "positive_scores": 0,
+        "derivative_eligible_scores": 0,
+        "legal_path_records": 0,
+        "nonzero_query_gradient_fraction": 0.0,
+        "isolated_negative_gradient_norm": 0.0,
+        "isolated_negative_gradient_max": 0.0
+      },
+      "4": {
+        "negative_records": 192,
+        "positive_scores": 0,
+        "derivative_eligible_scores": 0,
+        "legal_path_records": 0,
+        "nonzero_query_gradient_fraction": 0.0,
+        "isolated_negative_gradient_norm": 0.0,
+        "isolated_negative_gradient_max": 0.0
+      },
+      "8": {
+        "negative_records": 191,
+        "positive_scores": 0,
+        "derivative_eligible_scores": 0,
+        "legal_path_records": 0,
+        "nonzero_query_gradient_fraction": 0.0,
+        "isolated_negative_gradient_norm": 0.0,
+        "isolated_negative_gradient_max": 0.0
+      },
+      "16": {
+        "negative_records": 173,
+        "positive_scores": 0,
+        "derivative_eligible_scores": 0,
+        "legal_path_records": 0,
+        "nonzero_query_gradient_fraction": 0.0,
+        "isolated_negative_gradient_norm": 0.0,
+        "isolated_negative_gradient_max": 0.0
+      }
+    }
+  }
+}
