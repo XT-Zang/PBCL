@@ -37,9 +37,9 @@
 
 ## 方法原理与独立调用
 
-PBCL 针对间距 $g_{ij} \le 5\text{ px}$ 的相邻实例对 $(G_i, G_j)$，在局部外扩交互带 $B_{ij}^{(r)}$（$r=3$）内对预测概率图 $P = \sigma(Z)$ 执行 $K=9$ 步可微四邻域 max–min 传播，计算两实例之间的有界瓶颈连通强度 $c_{ij}$，并对超过安全阈值 $\tau - m = 0.4$ 的误连路径施加平方铰链惩罚：
+PBCL 针对间距 $g_{ij} \le 5\text{ px}$ 的相邻实例对 $(S_i, S_j)$，在局部外扩交互域 $\Omega_{ij}$（$r=3$）内对预测概率图 $p = \sigma(z)$ 执行 $K=9$ 步可微四邻域 max–min 传播，计算两实例之间的有界瓶颈连通强度 $c_{ij}^{(9)}$，并对超过安全阈值 $\tau - m = 0.4$ 的误连路径施加平方铰链惩罚：
 
-$$\mathcal{L}_{\mathrm{PBCL}} = \frac{1}{|\mathcal{P}|}\sum_{(i,j)\in\mathcal{P}} \max\bigl(0,\; c_{ij} - (\tau - m)\bigr)^2$$
+$$\mathcal{L}_{\mathrm{PBCL}} = \frac{1}{\max(1, |\mathcal{P}'|)}\sum_{(i,j)\in\mathcal{P}'} \max\bigl(0,\; c_{ij}^{(9)} - (\tau - m)\bigr)^2$$
 
 <p align="center">
   <img src="assets/fig_pbcl_mechanism.png" width="72%" alt="PBCL 训练机制示意图">
@@ -132,7 +132,7 @@ python run.py verify-results
 * **AquaDataset**（GF-1 / GF-6 四波段 B/G/R/NIR 遥感影像与实例标注）：
   * [Google Drive](https://drive.google.com/drive/folders/1PL_MIxu_Jt69cbeqNZcCL4exIHHCPSZa?usp=sharing)
   * [百度网盘](https://pan.baidu.com/s/1otIZdScCu37XIebyO-4FjA?pwd=98v9)（提取码：`98v9`）
-  * 论文冻结的地理留出划分清单已内置于 [`splits/aquadataset_geographic_holdout_v1/`](splits/aquadataset_geographic_holdout_v1/)。
+  * 论文冻结的地理留出划分清单（1,768 Train / 879 Val / 563 Test 切片）已内置于 [`splits/aquadataset_geographic_holdout_v1/`](splits/aquadataset_geographic_holdout_v1/)。
 * **SpaceNet 2 Vegas**（WorldView-3 密集建筑物）：
   * [SpaceNet Buildings Dataset v2](https://spacenet.ai/spacenet-buildings-dataset-v2/)
   * 划分协议元数据见 [`splits/spacenet2_vegas_dense_close_v1/`](splits/spacenet2_vegas_dense_close_v1/)。

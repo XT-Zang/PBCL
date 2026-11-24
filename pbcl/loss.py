@@ -111,12 +111,10 @@ def extract_neighbor_pairs(
             mask_j = crop == id_j
             dist = distance_transform_edt(~mask_i)
             min_dist = float(dist[mask_j].min())
-            # Exact pixel gap g_ij = max(0, ceil(min_dist) - 1) in Euclidean pixel units:
-            # 4-neighbor contact has min_dist = 1.0 -> gap 0; diagonal contact has sqrt(2) -> gap 0.
-            if min_dist <= np.sqrt(2.0) + 1e-6:
-                gap = 0
-            else:
-                gap = int(np.floor(min_dist - 1e-6))
+            # Exact pixel gap g_ij = max(0, floor(min_dist + 1e-9) - 1) (Eq. (1)):
+            # 4-neighbor (d=1) and diagonal (d=sqrt(2)) both yield g_ij = 0;
+            # worst-case g_ij <= 5 displacements (3,6) and (4,5) satisfy d < 7 -> g_ij = 5.
+            gap = max(0, int(np.floor(min_dist + 1e-9)) - 1)
 
             if gap > max_gap:
                 continue
@@ -146,7 +144,7 @@ class PairwiseBottleneckConnectivityLoss(nn.Module):
     Args:
         band_radius: Eight-neighbor dilation radius ``r`` defining the local
             interaction band (default: ``3``).
-        iterations: Number of four-neighbor max-min propagation steps ``T``
+        iterations: Number of four-neighbor max-min propagation steps ``K``
             (default: ``9``).
         threshold: Binary decision threshold ``tau`` (default: ``0.5``).
         margin: Separation safety margin ``m``; bottleneck scores above

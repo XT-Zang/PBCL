@@ -1,8 +1,8 @@
 {
-  "dataset_name": "AquaDateset",
+  "dataset_name": "AquaDataset",
   "version": "aquav3-geographic-holdout-v1",
   "parent_version": "aquav3-sceneholdout-v1",
-  "source_root": "<redacted>/AquaDateset",
+  "source_root": "<redacted>/AquaDataset",
   "task": "binary_semantic_segmentation_with_instance_aware_training_targets",
   "split_counts": {
     "train": 1768,

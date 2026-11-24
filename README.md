@@ -35,9 +35,9 @@ Dense raft aquaculture contains narrow water gaps (1–5 pixels) whose erroneous
 
 ## Method Overview & Standalone Usage
 
-PBCL extracts each neighboring instance pair $(G_i, G_j)$ within gap $g_{ij} \le 5\text{ px}$, forms a local padded interaction band $B_{ij}^{(r)}$ ($r=3$), and runs $K=9$ differentiable four-neighbor max–min propagation steps directly on the predicted probability map $P = \sigma(Z)$ to evaluate the strongest bounded-length bridge score $c_{ij}$. Any bridge exceeding the safety threshold $\tau - m$ ($0.5 - 0.1 = 0.4$) receives a squared hinge penalty:
+PBCL extracts each neighboring instance pair $(S_i, S_j)$ within gap $g_{ij} \le 5\text{ px}$, forms a local padded interaction domain $\Omega_{ij}$ ($r=3$), and runs $K=9$ differentiable four-neighbor max–min propagation steps directly on the predicted probability map $p = \sigma(z)$ to evaluate the strongest bounded-length connection score $c_{ij}^{(9)}$. Any connection exceeding the safety margin threshold $\tau - m$ ($0.5 - 0.1 = 0.4$) receives a squared hinge penalty:
 
-$$\mathcal{L}_{\mathrm{PBCL}} = \frac{1}{|\mathcal{P}|}\sum_{(i,j)\in\mathcal{P}} \max\bigl(0,\; c_{ij} - (\tau - m)\bigr)^2$$
+$$\mathcal{L}_{\mathrm{PBCL}} = \frac{1}{\max(1, |\mathcal{P}'|)}\sum_{(i,j)\in\mathcal{P}'} \max\bigl(0,\; c_{ij}^{(9)} - (\tau - m)\bigr)^2$$
 
 <p align="center">
   <img src="assets/fig_pbcl_mechanism.png" width="72%" alt="PBCL training mechanism">
@@ -157,6 +157,7 @@ Adding PBCL improves DCP Recall and reduces Merge in **48/48 paired seed compari
 | Boundary + EW-BCE | **85.35 ± 0.03** | 82.04 ± 0.06 | 71.31 ± 0.27 | 3.36 ± 0.06 | 1.23 ± 0.06 | 58.87 ± 0.53 | 7.81 ± 0.10 |
 | Boundary + soft-clDice | 84.28 ± 0.02 | 78.25 ± 0.04 | 70.51 ± 0.15 | 5.95 ± 0.18 | **0.89 ± 0.01** | 50.90 ± 0.62 | 7.91 ± 0.06 |
 | Boundary + Constrained MALIS | 84.87 ± 0.06 | 80.78 ± 0.10 | 71.11 ± 0.13 | 2.94 ± 0.02 | 1.26 ± 0.03 | 55.85 ± 0.47 | 7.63 ± 0.11 |
+| Boundary + WPRF-GT\* | 85.34 ± 0.04 | 82.02 ± 0.08 | 71.56 ± 0.10 | 3.77 ± 0.09 | 1.00 ± 0.02 | 53.95 ± 0.87 | 7.57 ± 0.04 |
 | Boundary + WPRF-valid\* | **85.35 ± 0.09** | **82.06 ± 0.08** | **71.77 ± 0.11** | 3.42 ± 0.13 | 1.05 ± 0.03 | 56.23 ± 1.08 | **7.34 ± 0.13** |
 | BCE + SPLIT (Eq. 15) | 79.84 ± 0.13 | 70.55 ± 0.31 | 65.22 ± 0.18 | **1.44 ± 0.05** | 1.82 ± 0.04 | 60.70 ± 0.40 | 7.85 ± 0.40 |
 | Boundary + SPLIT | 83.76 ± 0.07 | 79.06 ± 0.05 | 70.15 ± 0.07 | 2.51 ± 0.06 | 1.33 ± 0.02 | 57.63 ± 0.42 | 7.53 ± 0.09 |
@@ -233,7 +234,7 @@ python run.py verify-results
 * **AquaDataset** (GF-1/GF-6 4-band B/G/R/NIR imagery & polygon annotations):
   * [Google Drive](https://drive.google.com/drive/folders/1PL_MIxu_Jt69cbeqNZcCL4exIHHCPSZa?usp=sharing)
   * [Baidu Netdisk](https://pan.baidu.com/s/1otIZdScCu37XIebyO-4FjA?pwd=98v9) (access code: `98v9`)
-  * Frozen geographic-holdout manifests (`aquav3-geographic-holdout-v1`, 1,039 Train / 187 Val / 563 Test tiles) are bundled in [`splits/aquadataset_geographic_holdout_v1/`](splits/aquadataset_geographic_holdout_v1/).
+  * Frozen geographic-holdout manifests (`aquav3-geographic-holdout-v1`, 1,768 Train / 879 Val / 563 Test tiles) are bundled in [`splits/aquadataset_geographic_holdout_v1/`](splits/aquadataset_geographic_holdout_v1/).
 * **SpaceNet 2 Vegas** (WorldView-3 dense urban buildings):
   * [SpaceNet Buildings Dataset v2](https://spacenet.ai/spacenet-buildings-dataset-v2/)
   * Frozen protocol metadata (`spacenet2-vegas-dense-close-v1`, 2,513 Train / 621 Val / 568 Test tiles) is bundled in [`splits/spacenet2_vegas_dense_close_v1/`](splits/spacenet2_vegas_dense_close_v1/).

@@ -42,6 +42,31 @@ def test_extract_neighbor_pairs_gap_and_policies():
     assert len(extract_neighbor_pairs(diag, max_gap=5, policy="noncontact")) == 0
 
 
+def test_extract_neighbor_pairs_eq1_and_prop3_tightness():
+    """Verify g_ij = max(0, floor(d_ij + 1e-9) - 1) including Proposition 3 boundary cases."""
+    cases = [
+        ((1, 0), PAIR_BUCKET_CODE["touching"]),   # d = 1.0 -> g = 0
+        ((1, 1), PAIR_BUCKET_CODE["touching"]),   # d = sqrt(2) -> g = 0
+        ((0, 2), PAIR_BUCKET_CODE["1_2"]),        # d = 2.0 -> g = 1
+        ((1, 2), PAIR_BUCKET_CODE["1_2"]),        # d = sqrt(5) ~ 2.236 -> g = 1
+        ((3, 6), PAIR_BUCKET_CODE["3_5"]),        # d = sqrt(45) ~ 6.708 -> g = 5 (Prop. 3 tight)
+        ((4, 5), PAIR_BUCKET_CODE["3_5"]),        # d = sqrt(41) ~ 6.403 -> g = 5 (Prop. 3 tight)
+    ]
+    for (dy, dx), expected_bucket in cases:
+        inst = np.zeros((20, 20), dtype=np.int64)
+        inst[2, 2] = 1
+        inst[2 + dy, 2 + dx] = 2
+        pairs = extract_neighbor_pairs(inst, max_gap=5, policy="all")
+        assert pairs.shape == (1, 3), f"Displacement {(dy, dx)} should be retained with g <= 5"
+        assert tuple(pairs[0].tolist()) == (1, 2, expected_bucket)
+
+    # Displacement (0, 7) has d = 7.0 -> g = 6 > 5 and must be excluded
+    far = np.zeros((20, 20), dtype=np.int64)
+    far[2, 2] = 1
+    far[2, 9] = 2
+    assert len(extract_neighbor_pairs(far, max_gap=5, policy="all")) == 0
+
+
 def test_pbcl_penalizes_bridge_and_vanishes_when_separated():
     inst = _two_instance_scene(gap=2)
     inst_t = torch.from_numpy(inst).unsqueeze(0)
